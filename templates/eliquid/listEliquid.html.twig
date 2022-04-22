@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        Produits
+    </h1>
+    <a href="{{ path('createEliquid') }}">Ajouter un produit</a>
+    <div>
+        <h2>Eliquide en stock</h2>
+        {% for eliquid in eliquidActive %}
+            <a href="{{ path('showEliquid') }}">
+                {{ eliquid.name }}
+            </a>
+            <p>
+                {{ eliquid.brand }}
+            </p>
+            <p>
+                {{ eliquid.flavor }}
+            </p>
+            <p>
+                {{ eliquid.price }} euros
+            </p>
+        {% endfor %}
+    </div>
+    <div>
+        <h2>Eliquide hors stock</h2>
+        {% for eliquid in eliquidUnactive %}
+            <p>
+                {{ eliquid.name }}
+            </p>
+            <p>
+                {{ eliquid.brand }}
+            </p>
+            <p>
+                {{ eliquid.flavor }}
+            </p>
+        {% endfor %}
+    </div>
+</body>
+</html>

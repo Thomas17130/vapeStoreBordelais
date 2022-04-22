@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mon profil</h1>
+    <div class="informations">
+        <a href="{{ path('updateUser', {'id':app.user.id}) }}">Modifier</a>
+        <p>
+            Nom:{{ app.user.name }}
+        </p>
+        <p>
+            Prénom:{{ app.user.lastname }}
+        </p>
+        <p>
+            Email:{{ app.user.email }}
+        </p>
+        <p>
+            Adresse postale:{{ app.user.adress }}
+        </p>
+    </div>
+</body>
+</html>
