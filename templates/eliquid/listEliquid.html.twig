@@ -12,12 +12,17 @@
         Produits
     </h1>
     <a href="{{ path('createEliquid') }}">Ajouter un produit</a>
+
     <div>
         <h2>Eliquide en stock</h2>
         {% for eliquid in eliquidActive %}
-            <a href="{{ path('showEliquid') }}">
-                {{ eliquid.name }}
+            <a href="{{ path('showEliquid', {'id': eliquid.id}) }}">
+                <img src="{{ asset('uploadDirectory/' ~ eliquid.img) }}" alt="Seo à completer">
             </a>
+
+            <p>
+                {{ eliquid.name }}
+            </p>
             <p>
                 {{ eliquid.brand }}
             </p>
@@ -27,6 +32,7 @@
             <p>
                 {{ eliquid.price }} euros
             </p>
+            <a href="{{ path('updateEliquid', {'id': eliquid.id}) }}">Modifier un produit</a>
         {% endfor %}
     </div>
     <div>

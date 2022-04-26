@@ -25,7 +25,7 @@ class eliquidController extends AbstractController
             $img = $eliquidForm->get('img')->getData();
             //creer un id unique sou format data pour l'image
             $imgName = md5(uniqid()). '.' . $img->guessExtension();
-            //mettre l'inage récupéré dans le dossier public/uploadDirectory grace aux parametres rentrés dans le servic.yaml
+            //mettre l'inage récupéré dans le dossier public/uploadDirectory grace aux parametres rentrés dans le service.yaml
             $img->move($this->getParameter('uploadDirectory'), $imgName);
             //ajouter l'id unique de $imgName dans le $eliquid
             $eliquid->setImg($imgName);
@@ -51,20 +51,50 @@ class eliquidController extends AbstractController
             'eliquidActive' => $eliquidActive,
             'eliquidUnactive' => $eliquidUnactive
         ]);
-
-
     }
-    #[Route('/showEliquid', name:'showEliquid', methods:['GET','POST'])]
-    public function showEliquid(EliquidProductsRepository $eliquidProductsRepository)
+
+
+    #[Route('/showEliquid/{id}', name:'showEliquid', methods:['GET','POST'])]
+    public function showEliquid(EliquidProductsRepository $eliquidProductsRepository, $id)
     {
-
-        $eliquid = $eliquidProductsRepository->findOneBy([]);
-        if ($eliquid == null)
-        {
-            return $this->redirectToRoute('showEliquid');
-        }
-
-        return  $this->render('/showEliquid.html.twig');
+        $eliquid = $eliquidProductsRepository->FindOneBy(['id' =>$id]);
+        return  $this->render('eliquid/showEliquid.html.twig', [
+            'eliquid' => $eliquid
+        ]);
     }
 
+    #[Route('/updateEliquid/{id}', name:'updateEliquid', methods:['GET','POST'])]
+    public function updateEliquid(Request $request, EliquidProductsRepository $eliquidProductsRepository, $id)
+    {
+        $eliquid = $eliquidProductsRepository->FindOneBy(['id' =>$id]);
+        $eliquidForm = $this->createForm(CreateEliquidType::class, $eliquid);
+        $eliquidForm->handleRequest($request);
+        if ($eliquidForm->isSubmitted() && $eliquidForm->isValid())
+        {
+
+            if($eliquidForm->get('img')->getData() !== null){
+                $img = $eliquidForm->get('img')->getData();
+                //creer un id unique sous format data pour l'image
+                $imgName = md5(uniqid()). '.' . $img->guessExtension();
+                //mettre l'image récupéré dans le dossier public/uploadDirectory grace aux parametres rentrés dans le service.yaml
+                $img->move($this->getParameter('uploadDirectory'), $imgName);
+                //ajouter l'id unique de $imgName dans le $eliquid
+                $eliquid->setImg($imgName);
+            }
+
+            $eliquidProductsRepository->add($eliquid);
+            return $this->RedirectToRoute('listEliquid');
+            }
+        return $this->render('eliquid/updateEliquid.html.twig',[
+            'eliquidForm'=>$eliquidForm->createView(),
+            'id' => $eliquid->getId()
+        ]);
+    }
+    #[Route('/deleteEliquid/{id}', name:'deleteEliquid', methods:['GET','POST'])]
+    public function deleteEliquid(EliquidProductsRepository $eliquidProductsRepository, $id)
+    {
+        $eliquid = $eliquidProductsRepository->findOneBy(['id' => $id]);
+        $eliquidProductsRepository->remove($eliquid);
+        return $this->RedirectToRoute('listEliquid');
+    }
 }

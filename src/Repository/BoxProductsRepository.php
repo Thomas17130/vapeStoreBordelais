@@ -73,4 +73,13 @@ class BoxProductsRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function isInStock($value)
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.stock > :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

@@ -12,7 +12,7 @@
     <h1>Bienvenue sur la page d'accueil</h1>
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
+            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
         </div>
     {% endif %}
 

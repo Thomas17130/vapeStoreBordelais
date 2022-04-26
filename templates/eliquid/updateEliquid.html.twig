@@ -8,8 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
     <div>
-        {{ form(eliquidForm) }};
+        {{ form(eliquidForm) }}
     </div>
 </body>
 </html>

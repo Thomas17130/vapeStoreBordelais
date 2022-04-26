@@ -8,8 +8,15 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>Box en Stock</h2>
     <div>
-        {{ form(eliquidForm) }};
+        <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="SEO à completer">
+        <p>
+            {{ box.brand }}
+        </p>
+        <p>
+            {{ box.price }} euros
+        </p>
     </div>
 </body>
 </html>

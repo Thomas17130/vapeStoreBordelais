@@ -8,21 +8,21 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ eliquid.name }}</h1>
-    <div>
-        <img src="{{ eliquid.img }}" alt="SEO a completer">
-        <p>
-            {{ eliquid.brand }}
-        </p>
-        <article>
-            {{ eliquid.description }}
-        </article>
-        <span>
-            {{ eliquid.price }}
-        </span>
-        <p>
-            {{ eliquid.stock }}
-        </p>
-    </div>
+    <h2>Eliquide en stock</h2>
+        <div>
+            <img src="{{ asset('uploadDirectory/' ~ eliquid.img) }}" alt="Seo à completer">
+            <p>
+                {{ eliquid.name }}
+            </p>
+            <p>
+                {{ eliquid.brand }}
+            </p>
+            <p>
+                {{ eliquid.flavor }}
+            </p>
+            <p>
+                {{ eliquid.price }} euros
+            </p>
+        </div>
 </body>
 </html>

@@ -160,4 +160,8 @@ class BoxProducts
 
         return $this;
     }
+
+    public function handleRequest(\Symfony\Component\HttpFoundation\Request $request)
+    {
+    }
 }
