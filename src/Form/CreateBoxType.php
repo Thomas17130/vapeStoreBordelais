@@ -17,10 +17,12 @@ class CreateBoxType extends AbstractType
             ->add('brand')
             ->add('stock')
             ->add('quantity')
+            ->add('price')
             ->add('img', FileType::class, [
                 'required' => false,
                 'mapped' => false
             ])
+
             ->add('submit', SubmitType::class)
         ;
     }

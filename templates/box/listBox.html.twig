@@ -5,37 +5,41 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/listBox.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
+    <title>Les boxs</title>
 </head>
 <body>
     <h1>
         Produits
     </h1>
     <a href="{{ path('createBox') }}">Ajouter un produit</a>
-    <div>
+    <article>
         <h2>Box en Stock</h2>
         {% for box in boxActive %}
-        <a href="{{ path('showBox', {'id': box.id}) }}">
-            <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="SEO à completer">
-        </a>
-        <p>
-            {{ box.brand }}
-        </p>
-        {# <p>
-            {{ box.price }}
-        </p> #}
-        <a href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
+            <div class="box">
+                <a href="{{ path('showBox', {'id': box.id}) }}">
+                    <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="SEO à completer">
+                </a>
+                <p>
+                    {{ box.brand }}
+                </p>
+                <p>
+                    {{ box.price }} euros
+                </p>
+                <a href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
+            </div>
         {% endfor %}
-    </div>
+    </article>
     <div>
         <h2>Box  hors Stock</h2>
         {% for box in boxUnactive %}
         <p>
            {{ box.brand}}
         </p>
-        {# <p>
+        {<p>
             {{ box.price }} euros
-        </p> #}
+        </p>
         {% endfor %}
     </div>
 </body>

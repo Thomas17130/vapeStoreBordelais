@@ -5,19 +5,39 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
+
     <title>Document</title>
 </head>
 {% block body %}
 <body>
-    <h1>Bienvenue sur la page d'accueil</h1>
-    {% if app.user %}
+    <header>
+        <nav class="principalNav">
+            {% if app.user %}
+
+            {% endif %}
+                <div class="eliquid">
+                    <a href="{{ path('listEliquid') }}">les E-liquids</a>
+                </div>
+                <div class="box">
+                    <a href="{{ path('listBox') }}">les boxs</a>
+                </div>
+                <div class="myAccount">
+                    <a href="{{ path('myAccount') }}">mon profil</a>
+                </div>
+                <div class="connexion">
+                    <a href="{{ path('app_login') }}">Connexion</a>
+                </div>
+        </nav>
+        {% if app.user %}
         <div class="mb-3">
             Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
         </div>
-    {% endif %}
+        {% endif %}
+        <img src=" assets/img/homePhoto.jpg" alt="photo de vapote ">
+    </header>
 
-    <a href="{{ path('myAccount') }}">mon profil</a>
-    <a href="{{ path('app_login') }}">Connexion</a>
 
 </body>
 {% endblock %}

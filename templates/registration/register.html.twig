@@ -1,17 +1,46 @@
-{% extends 'base.html.twig' %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
+    <title>S'enregistrer</title>
+</head>
+<body>
 
-{% block title %}Register{% endblock %}
 
-{% block body %}
-    <h1>S'enregistrer</h1>
+    {% block body %}
+        <article>
+            <div class="formRegister">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                <h1>S'enregistrer</h1>
+                <div class="form">
+                {{ form_start(registrationForm, {'attr':
+                    {'class':'form'}
+                }) }}
+                {{ form_row(registrationForm.email, {label:
+                'Email',
+                'attr':{'class':'form'}}) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Mot de passe',
+                    'attr':{'class':'form'}
+                }) }}
+                {{ form_row(registrationForm.agreeTerms, {'label': 'Accepter les conditions'}) }}
+                {{form_row(registrationForm.name, {'attr':
+                    {'class':'form'}}) }}
+                {{ form_row(registrationForm.lastname, {'attr':
+                    {'class':'form'}}) }}
+                {{ form_row(registrationForm.address, {'attr':
+                    {'class':'form'}}) }}
+                    {{ form_end(registrationForm) }}
+                </div>
+                <button type="submit" class="btn">Enregistrer</button>
+            </div>
+        </article>
+    {% endblock %}
+</body>
+</html>
 
-        <button type="submit" class="btn">Enregistrer</button>
-    {{ form_end(registrationForm) }}
-{% endblock %}
+

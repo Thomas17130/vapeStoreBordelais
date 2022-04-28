@@ -20,7 +20,7 @@ class RegistrationFormType extends AbstractType
             ->add('name', )
             ->add('lastname')
             ->add('dateOfBirth')
-            ->add('adress')
+            ->add('address')
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,

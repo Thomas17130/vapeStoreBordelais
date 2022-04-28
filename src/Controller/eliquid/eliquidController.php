@@ -18,7 +18,7 @@ class eliquidController extends AbstractController
         $eliquid = new EliquidProducts();
         $eliquidForm = $this->createForm(CreateEliquidType::class, $eliquid);
         $eliquidForm->handleRequest($request);
-        //si le form est valide et envoyé alors faire le scrip
+        //si le form est valide et envoyé alors faire le script
         //s'il y a envoi de données et que le formulaire est valide,alors...
         if ($eliquidForm->isSubmitted() && $eliquidForm->isValid())
         {

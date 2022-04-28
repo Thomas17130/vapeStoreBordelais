@@ -40,6 +40,9 @@ class BoxProducts
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $img;
 
+    #[ORM\Column(type: 'float')]
+    private $price;
+
     public function __construct()
     {
         $this->baskets = new ArrayCollection();
@@ -163,5 +166,17 @@ class BoxProducts
 
     public function handleRequest(\Symfony\Component\HttpFoundation\Request $request)
     {
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
+
+        return $this;
     }
 }

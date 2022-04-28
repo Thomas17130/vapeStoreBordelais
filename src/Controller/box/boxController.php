@@ -50,7 +50,7 @@ class boxController extends AbstractController
             'boxUnactive'=> $boxUnactive
         ]);
     }
-    #[Route('/showBox', name:'showBox', methods:['GET','POST'])]
+    #[Route('/showBox/{id}', name:'showBox', methods:['GET','POST'])]
     public function showBox(BoxProductsRepository $boxProductsRepository, $id)
     {
         $box = $boxProductsRepository->findOneBy(['id'=> $id]);
