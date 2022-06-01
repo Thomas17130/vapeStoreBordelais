@@ -1,0 +1,1 @@
+<h2>Paiement effectué avec succès.</h2>
