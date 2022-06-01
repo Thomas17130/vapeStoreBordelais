@@ -28,8 +28,10 @@ class basketController extends AbstractController
         ]);
     }
     #[Route('/basket', name: 'basket', methods: ['GET','POST'])]
-    public function deleteProductInBasket()
+    public function deleteProductInBasket(BasketRepository $basketRepository, $id)
     {
-
+        $basket = $basketRepository->findOneBy((['id' => $id]));
+        $basketRepository->remove($basket);
+        return $this->Redirecttoroute('');
     }
 }

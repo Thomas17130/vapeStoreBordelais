@@ -25,7 +25,7 @@ $payer->setPaymentMethod('paypal');
 
 $item1 = new Item();
 $item1->setName($_POST['item'])
-    ->setCurrency('USD')
+    ->setCurrency('€')
     ->setQuantity(1)
     ->setPrice($_POST['amount']);
 
@@ -34,7 +34,7 @@ $itemList->setItems(array($item1));
 
 $amount = new PayPalApiAmount();
 $amount->setTotal($_POST['amount']);
-$amount->setCurrency('USD');
+$amount->setCurrency('€');
 
 $transaction = new PayPalApiTransaction();
 $transaction->setDescription("Payment For Service")

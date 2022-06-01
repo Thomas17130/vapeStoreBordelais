@@ -85,7 +85,7 @@ class boxController extends AbstractController
     public function deleteBox(BoxProductsRepository $boxProductsRepository, $id)
     {
         $box = $boxProductsRepository->findOneBy((['id' => $id]));
-        $boxProductsRepository->remove(($box));
+        $boxProductsRepository->remove($box);
         return $this->Redirecttoroute('listBox');
     }
 }
