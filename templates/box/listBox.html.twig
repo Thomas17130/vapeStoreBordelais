@@ -16,16 +16,16 @@
     <a href="{{ path('createBox') }}">Ajouter un produit</a>
     <article>
         <h2>Box en Stock</h2>
-        {% for box in boxActive %}
+        {% for box in box %}
             <div class="box">
                 <a href="{{ path('showBox', {'id': box.id}) }}">
                     <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="SEO à completer">
                 </a>
                 <p>
-                    {{ box.brand }}
+
                 </p>
                 <p>
-                    {{ box.price }} euros
+
                 </p>
                 <a href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
             </div>
@@ -33,9 +33,9 @@
     </article>
     <div>
         <h2>Box  hors Stock</h2>
-        {% for box in boxUnactive %}
+        {% for box in box %}
         <p>
-           {{ box.brand}}
+
         </p>
         {<p>
             {{ box.price }} euros

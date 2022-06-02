@@ -32,6 +32,6 @@ class basketController extends AbstractController
     {
         $basket = $basketRepository->findOneBy((['id' => $id]));
         $basketRepository->remove($basket);
-        return $this->Redirecttoroute('');
+        return $this->Redirecttoroute('/basket');
     }
 }
