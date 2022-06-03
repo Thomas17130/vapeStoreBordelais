@@ -1,0 +1,11 @@
+:root{
+    --principal-color : rgba(65,55,55,0.6);
+    --second-color : rgb(65,55,55);
+    --third-color : rgb(41, 126, 186);
+    --third-color-dark : rgba(22,69,102);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
