@@ -22,10 +22,10 @@
                     <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="SEO à completer">
                 </a>
                 <p>
-
+                    {{ box.brand.id }}
                 </p>
                 <p>
-
+                    {{ box.price }} euros
                 </p>
                 <a href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
             </div>
@@ -37,8 +37,8 @@
         <p>
 
         </p>
-        {<p>
-            {{ box.price }} euros
+        <p>
+
         </p>
         {% endfor %}
     </div>
