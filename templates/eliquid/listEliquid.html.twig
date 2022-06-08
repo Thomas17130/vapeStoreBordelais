@@ -22,13 +22,10 @@
             </a>
 
             <p>
+                {{ eliquid.brand.id }}
+            </p>
+            <p>
                 {{ eliquid.name }}
-            </p>
-            <p>
-                {{ eliquid.brand }}
-            </p>
-            <p>
-                {{ eliquid.flavor }}
             </p>
             <p>
                 {{ eliquid.price }} euros
@@ -40,14 +37,13 @@
         <h2>Eliquide hors stock</h2>
         {% for eliquid in eliquidUnactive %}
             <p>
+            {{ eliquid.brand.id }}
+            </p>
+            <p>
                 {{ eliquid.name }}
             </p>
-            <p>
-                {{ eliquid.brand }}
-            </p>
-            <p>
-                {{ eliquid.flavor }}
-            </p>
+
+
         {% endfor %}
     </div>
 </body>

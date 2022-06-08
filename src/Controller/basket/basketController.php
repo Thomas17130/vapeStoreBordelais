@@ -17,15 +17,18 @@ class basketController extends AbstractController
         $basket = new Basket();
         $basketForm = $this->createBasket(BasketFormType::class, $basket);
         $basketForm->handleRequest($request);
-
+        return $this->render('basket/basket.html.twig', [
+            'basket'=> $basketForm->createView(),
+        ]);
     }
-    #[Route('/basket', name: 'basket', methods: ['GET','POST'])]
-    public function viewBasket(BasketRepository $basketRepository, $box, $eliquid )
+    #[Route('/basketView', name: 'basketView', methods: ['GET','POST'])]
+    public function viewBasket(BasketRepository $basketRepository)
     {
-        $basket = $basketRepository->get([
+        $basketRepository->get([
             'box'=> $box,
             'eliquid'=>$eliquid
         ]);
+
     }
     #[Route('/basket', name: 'basket', methods: ['GET','POST'])]
     public function deleteProductInBasket(BasketRepository $basketRepository, $id)
