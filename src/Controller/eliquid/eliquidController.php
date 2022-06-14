@@ -2,7 +2,7 @@
 
 namespace App\Controller\eliquid;
 
-use App\Entity\EliquidProducts;
+use App\Entity\Product;
 use App\Form\CreateEliquidType;
 use App\Repository\EliquidProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,9 +13,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class eliquidController extends AbstractController
 {
     #[Route('/createEliquid', name: 'createEliquid', methods: ['GET', 'POST'])]
-    public function createEliquid(Request $request, EliquidProductsRepository $eliquidProductsRepository): Response
+    public function createEliquid(Request $request, ProductRepository $ProductRepository): Response
     {
-        $eliquid = new EliquidProducts();
+        $eliquid = new EliquidProduct();
         $eliquidForm = $this->createForm(CreateEliquidType::class, $eliquid);
         $eliquidForm->handleRequest($request);
         //si le form est valide et envoyé alors faire le script
@@ -32,7 +32,7 @@ class eliquidController extends AbstractController
 
             $eliquid->setDateOfCreation(new \DateTime('now'));
             $eliquid->setDateOfUpdate(new \DateTime('now'));
-            $eliquidProductsRepository->add($eliquid);
+            $ProductRepository->add($eliquid);
             return $this->redirectToRoute('listEliquid');
         }
 
@@ -42,10 +42,10 @@ class eliquidController extends AbstractController
     }
 
     #[Route('/listEliquid', name: 'listEliquid', methods: ['GET', 'POST'])]
-    public function listEliquid(EliquidProductsRepository $eliquidProductsRepository)
+    public function listEliquid(ProductRepository $productRepository)
     {
-        $eliquidActive = $eliquidProductsRepository->isInStock(0);
-        $eliquidUnactive = $eliquidProductsRepository->findBy(['stock'=> 0]);
+        $eliquidActive = $productRepository->isInStock(0);
+        $eliquidUnactive = $productRepository->findBy(['stock'=> 0]);
         //render permet d envoyer des informations dans le twig, donc dans le view
         return $this->render('eliquid/listEliquid.html.twig', [
             'eliquidActive' => $eliquidActive,
@@ -55,18 +55,18 @@ class eliquidController extends AbstractController
 
 
     #[Route('/showEliquid/{id}', name:'showEliquid', methods:['GET','POST'])]
-    public function showEliquid(EliquidProductsRepository $eliquidProductsRepository, $id)
+    public function showEliquid(ProductRepository $productRepository, $id)
     {
-        $eliquid = $eliquidProductsRepository->FindOneBy(['id' =>$id]);
+        $eliquid = $productRepository->FindOneBy(['id' =>$id]);
         return  $this->render('eliquid/showEliquid.html.twig', [
             'eliquid' => $eliquid
         ]);
     }
 
     #[Route('/updateEliquid/{id}', name:'updateEliquid', methods:['GET','POST'])]
-    public function updateEliquid(Request $request, EliquidProductsRepository $eliquidProductsRepository, $id)
+    public function updateEliquid(Request $request, ProductRepository $productRepository, $id)
     {
-        $eliquid = $eliquidProductsRepository->FindOneBy(['id' =>$id]);
+        $eliquid = $productRepository->FindOneBy(['id' =>$id]);
         $eliquidForm = $this->createForm(CreateEliquidType::class, $eliquid);
         $eliquidForm->handleRequest($request);
         if ($eliquidForm->isSubmitted() && $eliquidForm->isValid())
@@ -82,7 +82,7 @@ class eliquidController extends AbstractController
                 $eliquid->setImg($imgName);
             }
 
-            $eliquidProductsRepository->add($eliquid);
+            $productRepository->add($eliquid);
             return $this->RedirectToRoute('listEliquid');
             }
         return $this->render('eliquid/updateEliquid.html.twig',[
@@ -91,10 +91,10 @@ class eliquidController extends AbstractController
         ]);
     }
     #[Route('/deleteEliquid/{id}', name:'deleteEliquid', methods:['GET','POST'])]
-    public function deleteEliquid(EliquidProductsRepository $eliquidProductsRepository, $id)
+    public function deleteEliquid(ProductRepository $productRepository, $id)
     {
-        $eliquid = $eliquidProductsRepository->findOneBy(['id' => $id]);
-        $eliquidProductsRepository->remove($eliquid);
+        $eliquid = $productRepository->findOneBy(['id' => $id]);
+        $productRepository->remove($eliquid);
         return $this->RedirectToRoute('listEliquid');
     }
 }

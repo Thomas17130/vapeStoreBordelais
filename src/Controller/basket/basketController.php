@@ -24,10 +24,7 @@ class basketController extends AbstractController
     #[Route('/basketView', name: 'basketView', methods: ['GET','POST'])]
     public function viewBasket(BasketRepository $basketRepository)
     {
-        $basketRepository->get([
-            'box'=> $box,
-            'eliquid'=>$eliquid
-        ]);
+        $basketRepository->get([]);
 
     }
     #[Route('/basket', name: 'basket', methods: ['GET','POST'])]
