@@ -22,12 +22,12 @@ body a{
 header {
     width: 100%;
     height: 100vh;
+    background: center / cover repeat url("../img/homePhoto.jpg");
 }
 header img{
     width: 100%;
     height: 100vh;
-    background-position: center;
-    background-size: contain ;
+    object-fit: contain;
 }
 
 .principalNav{

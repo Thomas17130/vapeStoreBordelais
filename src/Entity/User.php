@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $dateOfBirth;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $address;
+    private $adress;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: EliquidProducts::class)]
     private $eliquidProducts;
