@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\box;
+namespace App\Controller\eliquid;
 
 use App\Entity\Product;
 use App\Repository\ProductRepository;
@@ -18,22 +18,22 @@ class productController extends AbstractController
      * @throws ORMException
      */
 
-    #[Route('/listBox', name: 'listBox', methods:['GET','POST'])]
-    public function listBox(ProductRepository $productRepository)
+    #[Route('/listEliquid', name: 'listEliquid', methods:['GET','POST'])]
+    public function listEliquid(ProductRepository $productRepository)
     {
-        $box = $productRepository->findBy(['category'=>2]);
-        return $this->render('box/listBox.html.twig',[
+        $eliquid = $productRepository->findBy(['category'=>2]);
+        return $this->render('eliquid/listEliquid.html.twig',[
 
-            'box'=> $box
+            'eliquid'=> $eliquid
         ]);
     }
 
-    #[Route('/showBox/{id}', name:'showBox', methods:['GET','POST'])]
-    public function showBox(ProductRepository $productRepository, $id)
+    #[Route('/showEliquid/{id}', name:'showEliquid', methods:['GET','POST'])]
+    public function showEliquid(ProductRepository $productRepository, $id)
     {
-        $box = $productRepository->findOneBy(['id'=> $id]);
-        return $this->render('box/showBox.html.twig', [
-            'box' => $box
+        $eliquid = $productRepository->findOneBy(['id'=> $id]);
+        return $this->render('eliquid/showEliquid.html.twig', [
+            'eliquid' => $eliquid
         ]);
     }
 }

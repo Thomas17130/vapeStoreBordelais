@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\EliquidProducts;
+use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\FileType;

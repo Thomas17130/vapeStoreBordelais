@@ -13,8 +13,7 @@ class BasketFormType extends AbstractType
     {
         $builder
 
-            ->add('eliquidProducts')
-            ->add('boxProducts')
+            ->add('Products')
         ;
     }
 
