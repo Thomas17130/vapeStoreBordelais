@@ -17,7 +17,7 @@ class UpdateUserType extends AbstractType
             ->add('name')
             ->add('lastname')
             ->add('dateOfBirth')
-            ->add('adress')
+            ->add('address')
             ->add('Enregistrer',SubmitType::class)
         ;
     }

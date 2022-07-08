@@ -17,11 +17,7 @@ class CreateEliquidType extends AbstractType
         $builder
             ->add('name')
             ->add('brand')
-            ->add('flavor')
-            ->add('size')
             ->add('price')
-            ->add('quantity')
-            ->add('stock')
             ->add('img', FileType::class, [
                 'required' => false,
                 'mapped' => false
@@ -33,7 +29,7 @@ class CreateEliquidType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => EliquidProducts::class,
+            'data_class' => Product::class,
         ]);
     }
 }

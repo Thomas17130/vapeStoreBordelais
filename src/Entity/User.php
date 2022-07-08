@@ -195,12 +195,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, EliquidProducts>
      */
-    public function getEliquidProducts(): Collection
+    public function getProduct(): Collection
     {
         return $this->eliquidProducts;
     }
 
-    public function addEliquidProduct(EliquidProducts $eliquidProduct): self
+    public function addProduct(EliquidProducts $eliquidProduct): self
     {
         if (!$this->eliquidProducts->contains($eliquidProduct)) {
             $this->eliquidProducts[] = $eliquidProduct;
@@ -210,7 +210,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function removeEliquidProduct(EliquidProducts $eliquidProduct): self
+    public function removeProduct(EliquidProducts $eliquidProduct): self
     {
         if ($this->eliquidProducts->removeElement($eliquidProduct)) {
             // set the owning side to null (unless already changed)
