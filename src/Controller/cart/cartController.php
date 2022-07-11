@@ -24,8 +24,8 @@ class cartController extends AbstractController
     #[Route('/cartView', name: 'cartView', methods: ['GET','POST'])]
     public function viewCart(CartRepository $cartRepository)
     {
-        $cartRepository->get([]);
 
+        return $this->render('cart/cart.html.twig');
     }
     #[Route('/cart', name: 'cart', methods: ['GET','POST'])]
     public function deleteProductInCart(CartRepository $cartRepository, $id)
