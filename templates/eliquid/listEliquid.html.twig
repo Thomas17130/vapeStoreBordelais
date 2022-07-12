@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
+    <link rel="stylesheet" href="assets\css\listEliquid.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
     <a href="{{ path('createEliquid') }}">Ajouter un produit</a>
 
     <div>
-        <h2>Eliquide en stock</h2>
+        <h2>Les Eliquides</h2>
         {% for eliquid in eliquid %}
             <a href="{{ path('showEliquid', {'id': eliquid.id}) }}">
                 <img src="{{ asset('uploadDirectory/' ~ eliquid.img) }}" alt="Seo à completer">

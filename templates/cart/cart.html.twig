@@ -5,12 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets\css\cart.css">
     <title>Document</title>
 </head>
 <body>
     <h2>Panier</h2>
     <div>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <form class="formCart" action="">
+
+        </form>
+    </div>
+    <div>
+        <form class='btnPaypal'action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_s-xclick">
             <input type="hidden" name="hosted_button_id" value="NZM2DUZD3YGT4">
             <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">

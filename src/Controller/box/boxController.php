@@ -2,9 +2,9 @@
 
 namespace App\Controller\box;
 
-use App\Entity\BoxProducts;
+use App\Entity\Product;
 use App\Form\CreateBoxType;
-use App\Repository\BoxProductsRepository;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Symfony\Component\HttpFoundation\Response;

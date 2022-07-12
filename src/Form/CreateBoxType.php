@@ -14,9 +14,8 @@ class CreateBoxType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('name')
             ->add('brand')
-            ->add('stock')
-            ->add('quantity')
             ->add('price')
             ->add('img', FileType::class, [
                 'required' => false,
@@ -30,7 +29,7 @@ class CreateBoxType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => BoxProducts::class,
+            'data_class' => Product::class,
         ]);
     }
 }

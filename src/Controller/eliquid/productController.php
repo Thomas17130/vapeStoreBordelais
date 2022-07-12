@@ -36,8 +36,8 @@ class productController extends AbstractController
             //ajouter l'id unique de $imgName dans le $eliquid
             $eliquid->setImg($imgName);
 
-            $eliquid->setDateOfCreation(new \DateTime('now'));
-            $eliquid->setDateOfUpdate(new \DateTime('now'));
+           // $eliquid->setDateOfCreation(new \DateTime('now'));
+           // $eliquid->setDateOfUpdate(new \DateTime('now'));
             $ProductRepository->add($eliquid);
             return $this->redirectToRoute('listEliquid');
         }

@@ -46,6 +46,10 @@ class Brand
     /**
      * @return Collection<int, Product>
      */
+    public function __toString()
+    {
+        return $this->name;
+    }
     public function getProducts(): Collection
     {
         return $this->products;
