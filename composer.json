@@ -49,6 +49,8 @@
         "twig/twig": "^2.12|^3.0"
     },
     "config": {
+        "bin-dir": "bin",
+        "vendor-dir": "../vendor",
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
