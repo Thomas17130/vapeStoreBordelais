@@ -2,7 +2,8 @@
 
 namespace App\Controller\eliquid;
 
-use App\Entity\Product;
+use App\Entity\EliquidProducts;
+use App\Repository\ProductRepository;
 use App\Form\CreateEliquidType;
 use App\Repository\EliquidProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,9 +14,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class eliquidController extends AbstractController
 {
     #[Route('/createEliquid', name: 'createEliquid', methods: ['GET', 'POST'])]
-    public function createEliquid(Request $request, ProductRepository $ProductRepository): Response
+    public function createEliquid(Request $request, EliquidProductsRepository $ProductRepository): Response
     {
-        $eliquid = new EliquidProduct();
+        $eliquid = new EliquidProducts();
         $eliquidForm = $this->createForm(CreateEliquidType::class, $eliquid);
         $eliquidForm->handleRequest($request);
         //si le form est valide et envoyé alors faire le script
@@ -42,14 +43,12 @@ class eliquidController extends AbstractController
     }
 
     #[Route('/listEliquid', name: 'listEliquid', methods: ['GET', 'POST'])]
-    public function listEliquid(ProductRepository $productRepository)
+    public function listEliquid(EliquidProductsRepository $productRepository)
     {
-        $eliquidActive = $productRepository->isInStock(0);
-        $eliquidUnactive = $productRepository->findBy(['stock'=> 0]);
+        $eliquids = $productRepository->findAll();
         //render permet d envoyer des informations dans le twig, donc dans le view
         return $this->render('eliquid/listEliquid.html.twig', [
-            'eliquidActive' => $eliquidActive,
-            'eliquidUnactive' => $eliquidUnactive
+            'eliquids' => $eliquids,
         ]);
     }
 
@@ -57,14 +56,14 @@ class eliquidController extends AbstractController
     #[Route('/showEliquid/{id}', name:'showEliquid', methods:['GET','POST'])]
     public function showEliquid(ProductRepository $productRepository, $id)
     {
-        $eliquid = $productRepository->FindOneBy(['id' =>$id]);
+        $eliquids = $productRepository->FindOneBy(['id' =>$id]);
         return  $this->render('eliquid/showEliquid.html.twig', [
-            'eliquid' => $eliquid
+            'eliquid' => $eliquids
         ]);
     }
 
     #[Route('/updateEliquid/{id}', name:'updateEliquid', methods:['GET','POST'])]
-    public function updateEliquid(Request $request, ProductRepository $productRepository, $id)
+    public function updateEliquid(Request $request, EliquidProductsRepository $productRepository, $id)
     {
         $eliquid = $productRepository->FindOneBy(['id' =>$id]);
         $eliquidForm = $this->createForm(CreateEliquidType::class, $eliquid);
@@ -91,7 +90,7 @@ class eliquidController extends AbstractController
         ]);
     }
     #[Route('/deleteEliquid/{id}', name:'deleteEliquid', methods:['GET','POST'])]
-    public function deleteEliquid(ProductRepository $productRepository, $id)
+    public function deleteEliquid(EliquidProductsRepository $productRepository, $id)
     {
         $eliquid = $productRepository->findOneBy(['id' => $id]);
         $productRepository->remove($eliquid);

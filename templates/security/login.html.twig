@@ -10,14 +10,16 @@
     <title>Document</title>
 </head>
 <body>
-{% if app.user %}
-<div class="mb-3">
-    Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
-</div>
-{% endif %}
-    <div class="formConnexion">
+    {{ include('commons/navigation.html.twig') }}
+    <section class="flex-center">
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
+            </div>
+        {% endif %}
+        <div class="formConnexion">
 
-        {% block body %}
+            {% block body %}
             <form method="post">
                 {% if error %}
                     <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -31,7 +33,7 @@
                     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
                     <input class="connected" type="hidden" name="_csrf_token"
-                       value="{{ csrf_token('authenticate') }}">
+                           value="{{ csrf_token('authenticate') }}">
                 </div>
                 {#
                 Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -54,8 +56,9 @@
                     S'enregistrer
                 </button>
             </form>
-    </div>
-{% endblock %}
+        </div>
+        {% endblock %}
+    </section>
 </body>
 </html>
 

@@ -18,7 +18,6 @@ class BoxProducts
     #[ORM\Column(type: 'string', length: 255)]
     private $brand;
 
-
     #[ORM\Column(type: 'datetime')]
     private $dateOfCreation;
 
@@ -27,9 +26,6 @@ class BoxProducts
 
     #[ORM\Column(type: 'integer')]
     private $stock;
-
-    #[ORM\Column(type: 'integer')]
-    private $quantity;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'boxProducts')]
     private $user;
@@ -97,18 +93,6 @@ class BoxProducts
     public function setStock(int $stock): self
     {
         $this->stock = $stock;
-
-        return $this;
-    }
-
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(int $quantity): self
-    {
-        $this->quantity = $quantity;
 
         return $this;
     }

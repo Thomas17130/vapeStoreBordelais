@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/createBox.css') }}">
-    <title>Document</title>
+    <title>ajouter un produit</title>
 </head>
 <body>
+    {{ include('commons/navigation.html.twig') }}
+    <h1>Ajouter une box</h1>
     <div class="addForm">
         {{ form(boxForm) }}
     </div>

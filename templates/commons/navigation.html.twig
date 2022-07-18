@@ -1,0 +1,26 @@
+<header>
+    <link rel="stylesheet" href="{{ asset('assets/css/navigation.css') }}">
+    <nav class="principalNav">
+        {% if app.user %}
+
+        {% endif %}
+        <div>
+            <a href="{{ path('listEliquid') }}" class="thirdColor">les E-liquids</a>
+        </div>
+        <div>
+            <a href="{{ path('listBox') }}" class="thirdColor">les boxs</a>
+        </div>
+        <div>
+            <a href="{{ path('myAccount') }}" class="navigationItem">mon profil</a>
+        </div>
+        <div>
+            <a href="{{ path('app_login') }}" class="navigationItem">Connexion</a>
+        </div>
+        <a  href="{{ path('cartView') }}"><img class="panier" src="assets\img\ajouter-au-panier.png" alt=""></a>
+    </nav>
+    {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
+        </div>
+    {% endif %}
+</header>

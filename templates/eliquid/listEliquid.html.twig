@@ -6,33 +6,39 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
-    <link rel="stylesheet" href="assets\css\listEliquid.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
     <title>Document</title>
 </head>
 <body>
-    <h1>
-        Produits
-    </h1>
-    <a href="{{ path('createEliquid') }}">Ajouter un produit</a>
-
+    {{ include('commons/navigation.html.twig') }}
     <div>
-        <h2>Les Eliquides</h2>
-        {% for product in products %}
-            <a href="{{ path('showEliquid', {'id': product.id}) }}">
-                <img src="{{ asset('uploadDirectory/' ~ product.img) }}" alt="Seo à completer">
-            </a>
-
-            <p>
-                {{ product.brand.id }}
-            </p>
-            <p>
-                {{ product.name }}
-            </p>
-            <p>
-                {{ product.price }} euros
-            </p>
-            <a href="{{ path('updateEliquid', {'id': product.id}) }}">Modifier un produit</a>
+        <h1>
+            Les Eliquides
+        </h1>
+        <a href="{{ path('createEliquid') }}">Ajouter un produit</a>
     </div>
+    <article>
+        {% for product in eliquids %}
+            <div class="box">
+                <a href="{{ path('showEliquid', {'id': product.id}) }}" class="flex-column">
+                    <img src="{{ asset('uploadDirectory/' ~ product.img) }}" alt="Seo à completer" class="sizedImg">
+                </a>
+
+                <p>
+                    {{ product.brand }}
+                </p>
+                <p>
+                    {{ product.name }}
+                </p>
+                <p>
+                    {{ product.price }} euros
+                </p>
+                <p>
+                    {{ product.stock > 0 ? (product.stock < 10 ? 'Il n\'en reste que ' ~ product.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
+                </p>
+                <a href="{{ path('updateEliquid', {'id': product.id}) }}" class="flex-column">Modifier un produit</a>
+            </div>
         {% endfor %}
+    </article>
 </body>
 </html>

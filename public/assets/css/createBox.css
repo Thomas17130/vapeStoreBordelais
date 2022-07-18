@@ -1,4 +1,4 @@
- :root{
+:root{
     --principal-color : rgba(65,55,55,0.6);
     --second-color : rgba(65,55,55);
     --third-color : rgba(41, 126, 186)
@@ -10,12 +10,13 @@
 }
 
 
-body{
+body {
     width: 100%;
-    height:100vh;
     background-color: var(--principal-color);
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 body a{
@@ -23,13 +24,11 @@ body a{
     color: #DDDDDD;
 }
 .addForm{
-    width: 300px;
-    height:400px ;
+    width: 400px;
+    height:300px ;
     margin: 100px ;
     padding: 50px 50px ;
     border: 2px solid transparent;
     border-radius: 10px;
     background-color:var(--third-color) ;
-
-
 }

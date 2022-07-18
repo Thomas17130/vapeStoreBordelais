@@ -2,9 +2,9 @@
 
 namespace App\Controller\box;
 
-use App\Entity\Product;
+use App\Entity\BoxProducts;
 use App\Form\CreateBoxType;
-use App\Repository\ProductRepository;
+use App\Repository\BoxProductsRepository;
 use Doctrine\ORM\OptimisticLockException;
 use Doctrine\ORM\ORMException;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,11 +43,9 @@ class boxController extends AbstractController
     #[Route('/listBox', name: 'listBox', methods:['GET','POST'])]
     public function listBox(BoxProductsRepository $boxProductsRepository)
     {
-        $boxActive = $boxProductsRepository->isInStock(0);
-        $boxUnactive = $boxProductsRepository->findBy(['stock'=>0]);
+        $boxs = $boxProductsRepository->findAll();
         return $this->render('box/listBox.html.twig',[
-            'boxActive'=> $boxActive,
-            'boxUnactive'=> $boxUnactive
+            'boxs'=> $boxs
         ]);
     }
     #[Route('/showBox/{id}', name:'showBox', methods:['GET','POST'])]

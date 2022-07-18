@@ -31,9 +31,6 @@ class EliquidProducts
     private $price;
 
     #[ORM\Column(type: 'integer')]
-    private $quantity;
-
-    #[ORM\Column(type: 'integer')]
     private $stock;
 
     #[ORM\Column(type: 'date')]
@@ -117,18 +114,6 @@ class EliquidProducts
     public function setPrice(float $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(int $quantity): self
-    {
-        $this->quantity = $quantity;
 
         return $this;
     }

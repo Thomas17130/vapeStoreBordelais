@@ -8,37 +8,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
 
-    <title>Document</title>
+    <title>Page d'accueil</title>
 </head>
 {% block body %}
 <body>
-    <header>
-        <nav class="principalNav">
-            {% if app.user %}
 
-            {% endif %}
-                <div class="eliquid">
-                    <a href="{{ path('listEliquid') }}">les E-liquids</a>
-                </div>
-                <div class="box">
-                    <a href="{{ path('listBox') }}">les boxs</a>
-                </div>
-                <div class="myAccount">
-                    <a href="{{ path('myAccount') }}">mon profil</a>
-                </div>
-                <div class="connexion">
-                    <a href="{{ path('app_login') }}">Connexion</a>
-                </div>
-                <a  href="{{ path('cartView') }}"><img class="panier" src="assets\img\ajouter-au-panier.png" alt=""></a>
-        </nav>
-        {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
-        </div>
-        {% endif %}
-        <!--<img src=" assets/img/homePhoto.jpg" alt="photo de vapote ">-->
-    </header>
-
+{{ include('commons/navigation.html.twig') }}
 
 </body>
 {% endblock %}
