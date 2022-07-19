@@ -3,11 +3,7 @@
     --second-color : rgba(65,55,55);
     --third-color : rgba(41, 126, 186)
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body{
     background-color:var(--principal-color);
     width: 100%;

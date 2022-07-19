@@ -4,6 +4,15 @@
     --third-color : rgb(41, 126, 186);
     --third-color-dark : rgba(22,69,102);
 }
+
+/* QUE DANS NAV */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*FIN QUE DANS NAV*/
+
 header {
     width: 100%;
 }

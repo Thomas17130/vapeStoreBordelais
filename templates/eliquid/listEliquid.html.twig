@@ -31,9 +31,14 @@
                         <p>
                             {{ product.price }} euros
                         </p>
-                        <p class="{{ product.stock > 0 ? (product.stock < 10 ? 'danger-color' : 'success-color') : 'danger-color' }}">
-                            {{ product.stock > 0 ? (product.stock < 10 ? 'Il n\'en reste plus que ' ~ product.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
-                        </p>
+                        <div class="{{ product.stock > 0 ? (product.stock < 10 ? 'danger-color flex-centered' : 'success-color') : 'danger-color' }}">
+                            {% if product.stock >=0 and product.stock < 10 %}
+                                <p class="warn warning"></p>
+                            {% endif %}
+                            <div class="ml-2">
+                                {{ product.stock > 0 ? (product.stock < 10 ? 'Il n\'en reste plus que ' ~ product.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
+                            </div>
+                        </div>
                         <a href="{{ path('updateEliquid', {'id': product.id}) }}" class="flex-column">Modifier un produit</a>
             </article>
             {% endfor %}

@@ -12,12 +12,12 @@
 <body>
     {{ include('commons/navigation.html.twig') }}
     <main>
-        <div class="informations">
+        <form class="informations">
             <a href="{{ path('deleteUser', {'id':app.user.id}) }}">Supprimer mon profil</a>
             <div>
                 {{ form(userForm) }}
             </div>
-        </div>
+        </form>
     </main>
 </body>
 </html>
