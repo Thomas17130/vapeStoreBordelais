@@ -1,23 +1,53 @@
 :root{
     --principal-color : rgba(65,55,55,0.6);
     --second-color : rgba(65,55,55);
-    --third-color : rgba(41, 126, 186)
+    --third-color : rgba(41, 126, 186);
+    --third-color-dark : rgba(22,69,102);
 }
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-html {
-    background: url("../img/homePhoto.jpg") no-repeat center center fixed;
+main{
+    background-color: var(--second-color);
+}
+main>img{
+    width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: contain;
 }
 
 body a{
     text-decoration: none;
     color: #DDDDDD;
+}
+.firstSection{
+    width: 100%;
+    background-color: var(--second-color);
+}
+.secondSection{
+    width: 100%;
+    background-color: var(--third-color);
+}
+.thirdSection{
+    width: 100%;
+    background-color: var(--third-color-dark);
+}
+article {
+    width: 100%;
+    color: white;
+    font-size: 18px;
+    line-height: 1.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items:center;
+}
+article>img{
+    width: 40%;
+}
+article>p{
+    width: 50%;
 }

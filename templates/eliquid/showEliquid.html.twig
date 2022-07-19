@@ -6,24 +6,28 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/showEliquid.css') }}">
+
     <title>Fiche produit</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <div>
-        <img src="{{ asset('uploadDirectory/' ~ eliquid.img) }}" alt="Seo à completer">
-        <p>
-            {{ eliquid.name }}
-        </p>
-        <p>
-            {{ eliquid.brand }}
-        </p>
-        <p>
-            {{ eliquid.flavor }}
-        </p>
-        <p>
-            {{ eliquid.price }} euros
-        </p>
-    </div>
+    <main>
+        <div class="product">
+            <img src="{{ asset('uploadDirectory/' ~ eliquid.img) }}" alt="Seo à completer">
+            <p>
+                {{ eliquid.name }}
+            </p>
+            <p>
+                {{ eliquid.brand }}
+            </p>
+            <p>
+                {{ eliquid.flavor }}
+            </p>
+            <p>
+                {{ eliquid.price }} euros
+            </p>
+        </div>
+    </main>
 </body>
 </html>

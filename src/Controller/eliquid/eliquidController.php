@@ -54,7 +54,7 @@ class eliquidController extends AbstractController
 
 
     #[Route('/showEliquid/{id}', name:'showEliquid', methods:['GET','POST'])]
-    public function showEliquid(ProductRepository $productRepository, $id)
+    public function showEliquid(EliquidProductsRepository $productRepository, $id)
     {
         $eliquids = $productRepository->FindOneBy(['id' =>$id]);
         return  $this->render('eliquid/showEliquid.html.twig', [

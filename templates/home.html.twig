@@ -7,14 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
-
     <title>Page d'accueil</title>
 </head>
+{{ include('commons/navigation.html.twig') }}
 {% block body %}
 <body>
-
-{{ include('commons/navigation.html.twig') }}
-
+    <main>
+            <img  class="homePhoto" src="../{{ asset('assets/img/homePhoto.jpg') }}" alt="photo de page d'accueil de cigarette elctronique">
+        <section class="firstSection">
+            <article>
+                <img src="../{{ asset('assets/img/Magasin.jpg') }}" alt="magasin design de cigarette electronique">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa dolorum et eveniet illo inventore laudantium modi, molestiae sequi! Accusantium alias, aliquam aliquid amet commodi consequatur cupiditate debitis dicta doloribus expedita explicabo illum, ipsa, itaque nam natus nihil possimus praesentium provident sint soluta vel velit vero voluptatem. Delectus impedit in natus numquam officiis vero. Cupiditate, deleniti error eum minima molestiae sit suscipit veniam? A ab accusamus ad amet corporis eaque eligendi enim eum facilis harum inventore labore, libero magnam molestias, nesciunt non numquam quae qui, quia quibusdam quidem quisquam quos ratione reiciendis repellendus reprehenderit sapiente sequi similique suscipit veniam voluptates.
+                </p>
+            </article>
+        </section>
+        <section class="secondSection">
+            <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At autem consequatur cumque facere necessitatibus quam quod quos reprehenderit saepe voluptatem. A ad alias, atque ducimus in ipsum itaque modi odio ratione reprehenderit soluta tempora, velit voluptatibus! Aliquam aliquid asperiores, dicta ea iste quia sit suscipit? Accusamus adipisci aliquid asperiores aspernatur consequuntur cum debitis distinctio doloremque dolorum error esse et eum exercitationem expedita facilis harum in inventore iure laboriosam laborum laudantium minima modi non optio provident quam quas quia quo quod ratione repellendus sapiente sequi soluta tempore tenetur, totam, voluptas. Architecto atque aut debitis dolorum nobis similique velit. Impedit mollitia, nulla?
+                </p>
+                <img src="../{{ asset('assets/img/fumée.jpg') }}" alt="fumée de vapote">
+            </article>
+        </section>
+        <section class="thirdSection">
+            <article>
+                <img src="../{{ asset('assets/img/homePhoto.jpg') }}" alt="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid architecto aspernatur assumenda aut cumque dolores error eum facilis fuga fugiat id ipsa ipsum mollitia odio quasi quis quisquam quod ratione, rem saepe temporibus velit veniam vitae voluptatum. A ad aliquid aperiam aspernatur atque autem commodi consectetur, delectus dolor eius error esse ex excepturi fuga fugit harum incidunt labore laborum maiores maxime natus necessitatibus nemo nisi non nulla officiis placeat quae qui reiciendis repellat repellendus sequi soluta tempora ut vel voluptas voluptatibus? Amet debitis doloremque iste nemo nihil numquam perferendis quae quas quasi rem repudiandae tempore, ullam unde voluptate voluptatibus!
+                </p>
+            </article>
+        </section>
+    </main>
 </body>
 {% endblock %}
 </html>

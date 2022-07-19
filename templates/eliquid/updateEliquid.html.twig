@@ -10,9 +10,11 @@
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <a href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
-    <div>
-        {{ form(eliquidForm) }}
-    </div>
+    <main>
+        <a href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
+        <div>
+            {{ form(eliquidForm) }}
+        </div>
+    </main>
 </body>
 </html>

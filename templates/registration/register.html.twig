@@ -8,36 +8,42 @@
     <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
     <title>S'enregistrer</title>
 </head>
-<body>
+<body class="flexColumn">
     {{ include('commons/navigation.html.twig') }}
     {% block body %}
-        <article>
-            <div class="formRegister">
+        <main>
+            <article>
+                <div class="formRegister">
 
-                <h1>S'enregistrer</h1>
-                <div class="form">
-                {{ form_start(registrationForm, {'attr':
-                    {'class':'form'}
-                }) }}
-                {{ form_row(registrationForm.email, {label:
-                'Email',
-                'attr':{'class':'form'}}) }}
-                {{ form_row(registrationForm.plainPassword, {
-                    label: 'Mot de passe',
-                    'attr':{'class':'form'}
-                }) }}
-                {{ form_row(registrationForm.agreeTerms, {'label': 'Accepter les conditions'}) }}
-                {{form_row(registrationForm.name, {'attr':
-                    {'class':'form'}}) }}
-                {{ form_row(registrationForm.lastname, {'attr':
-                    {'class':'form'}}) }}
-                {{ form_row(registrationForm.address, {'attr':
-                    {'class':'form'}}) }}
-                    {{ form_end(registrationForm) }}
+                    <h1>S'enregistrer</h1>
+                    <div class="form">
+                        {{ form_start(registrationForm, {'attr':
+                            {'class':'form'}}) }}
+                        {{ form_row(registrationForm.lastname, {
+                            label:'Prénom','attr':
+                            {'class':'form'}}) }}
+                        {{form_row(registrationForm.name, {
+                            label:'Nom','attr':
+                            {'class':'form'}}) }}
+                        {{ form_row(registrationForm.dateOfBirth, {
+                            label:'Date de naissance','attr':
+                            {'class':'form'}}) }}
+                        {{ form_row(registrationForm.address, {
+                            label:'Adresse','attr':
+                            {'class':'form'}}) }}
+                        {{ form_row(registrationForm.email, {label:
+                            'Email','attr':
+                            {'class':'form'}}) }}
+                        {{ form_row(registrationForm.plainPassword, {
+                            label: 'Mot de passe',
+                            'attr':{'class':'form'}
+                        }) }}
+                        {{ form_row(registrationForm.agreeTerms, {'label': 'Accepter les conditions'}) }}
+                        {{ form_end(registrationForm) }}
+                    </div>
                 </div>
-                <button type="submit" class="btn">Enregistrer</button>
-            </div>
-        </article>
+            </article>
+        </main>
     {% endblock %}
 </body>
 </html>

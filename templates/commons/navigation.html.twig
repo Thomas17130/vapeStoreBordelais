@@ -1,26 +1,42 @@
-<header>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/navigation.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<header>
     <nav class="principalNav">
-        {% if app.user %}
-
+        <div>
+            <a href="{{ path('home') }}"><img class="logoNavigation" src="assets\img\logoVapestorBordelais.jpg" alt="Logo vapestore bordelais ecommerce ..."></a>
+        </div>
+        <div>
+            <a href="{{ path('listEliquid') }}" class="thirdColor">Les E-liquids</a>
+        </div>
+        <div>
+            <a href="{{ path('listBox') }}" class="thirdColor">Les boxs</a>
+        </div>
+        {% if app.user != null %}
+            <div>
+                <a href="{{ path('myAccount') }}" class="navigationItem">Mon profil</a>
+            </div>
         {% endif %}
-        <div>
-            <a href="{{ path('listEliquid') }}" class="thirdColor">les E-liquids</a>
-        </div>
-        <div>
-            <a href="{{ path('listBox') }}" class="thirdColor">les boxs</a>
-        </div>
-        <div>
-            <a href="{{ path('myAccount') }}" class="navigationItem">mon profil</a>
-        </div>
-        <div>
-            <a href="{{ path('app_login') }}" class="navigationItem">Connexion</a>
-        </div>
+        {% if app.user != null %}
+            <div>
+                <a href="{{ path('app_logout') }}" class="navigationItem">Logout</a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{{ path('app_login') }}" class="navigationItem">Connexion</a>
+            </div>
+        {% endif %}
         <a  href="{{ path('cartView') }}"><img class="panier" src="assets\img\ajouter-au-panier.png" alt=""></a>
     </nav>
-    {% if app.user %}
-        <div class="mb-3">
-            Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
-        </div>
-    {% endif %}
 </header>
+</body>
+</html>
+

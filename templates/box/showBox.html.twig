@@ -11,14 +11,16 @@
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <div>
-        <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="Seo à completer">
-        <p>
-            {{ box.brand }}
-        </p>
-        <p>
-            {{ box.price }} euros
-        </p>
-    </div>
+    <main>
+        <div class="product">
+            <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="Seo à completer">
+            <p>
+                {{ box.brand }}
+            </p>
+            <p>
+                {{ box.price }} euros
+            </p>
+        </div>
+    </main>
 </body>
 </html>

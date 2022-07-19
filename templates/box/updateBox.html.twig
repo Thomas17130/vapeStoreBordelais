@@ -10,15 +10,18 @@
 
     <title>Document</title>
 </head>
-<body>
+<body class="flexColumn">
     {{ include('commons/navigation.html.twig') }}
-    <article>
-        <div class="card">
-            <a href="{{ path('deleteBox', {'id': id}) }}">Supprimer le produit</a>
-            <div>
-                {{ form(boxForm) }}
+    <main>
+        <article>
+            <div class="card">
+                <a href="{{ path('deleteBox', {'id': id}) }}">Supprimer le produit</a>
+                <div>
+                    {{ form(boxForm) }}
+                </div>
             </div>
-        </div>
-    </article>
+        </article>
+    </main>
+
 </body>
 </html>

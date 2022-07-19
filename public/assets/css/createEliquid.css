@@ -25,8 +25,9 @@ body a{
 }
 .addForm{
     width: 400px;
-    height:300px ;
-    margin: 100px ;
+    height:500px ;
+    margin: 50px ;
+    line-height: 3em;
     padding: 50px 50px ;
     border: 2px solid transparent;
     border-radius: 10px;

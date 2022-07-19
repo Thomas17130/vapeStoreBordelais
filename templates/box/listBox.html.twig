@@ -11,25 +11,31 @@
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <h1>
-        Boxs
-    </h1>
-    <article>
-    <a href="{{ path('createBox') }}">Ajouter un produit</a>
-        {% for box in boxs %}
-            <div class="box">
-                <a href="{{ path('showBox', {'id': box.id}) }}">
-                    <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="SEO à completer">
-                </a>
-                <p>
-                    {{ box.brand }}
-                </p>
-                <p>
-                    {{ box.price }} euros
-                </p>
+    <main>
+        <h1 class="textPage">
+           Les Boxs
+        </h1>
+        <a href="{{ path('createBox') }}">Ajouter un produit</a>
+        <section>
+            {% for box in boxs %}
+            <article class="box">
+                        <a href="{{ path('showBox', {'id': box.id}) }}">
+                            <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="image de la box : {{ box.brand }}">
+                        </a>
+                        <p>
+                            {{ box.brand }}
+                        </p>
+                        <p>
+                            {{ box.price }} euros
+                        </p>
+                        <p>
+                            {{ box.stock > 0 ? (box.stock < 10 ? 'Il n\'en reste que ' ~ box.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
+                        </p>
                 <a href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
-            </div>
-        {% endfor %}
-    </article>
+                </article>
+            {% endfor %}
+        </section>
+    </main>
+
 </body>
 </html>
