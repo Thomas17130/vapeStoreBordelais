@@ -23,6 +23,7 @@ class CreateEliquidType extends AbstractType
                 'choice_label' => 'name',
                 'class' => Brand::class
             ])
+            /*->add('brand', TextType::class)*/
             ->add('flavor',TextType::class)
             ->add('price', NumberType::class)
             ->add('size', NumberType::class)

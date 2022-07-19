@@ -12,7 +12,7 @@
 <header>
     <nav class="principalNav">
         <div>
-            <a href="{{ path('home') }}"><img class="logoNavigation" src="assets\img\logoVapestorBordelais.jpg" alt="Logo vapestore bordelais ecommerce ..."></a>
+            <a href="{{ path('home') }}" class="aLogoNavigation"><img class="logoNavigation" src="{{ asset('assets/img/logoVapestorBordelais.jpg') }}" alt="Logo vapestore bordelais ecommerce ..."></a>
         </div>
         <div>
             <a href="{{ path('listEliquid') }}" class="thirdColor">Les E-liquids</a>
@@ -34,8 +34,21 @@
                 <a href="{{ path('app_login') }}" class="navigationItem">Connexion</a>
             </div>
         {% endif %}
-        <a  href="{{ path('cartView') }}"><img class="panier" src="assets\img\ajouter-au-panier.png" alt=""></a>
+        <a  href="{{ path('cartView') }}"><img class="panier" src="{{ asset('assets/img/ajouter-au-panier.png') }}" alt=""></a>
     </nav>
+    <script type="text/javascript">
+        let navbar = document.querySelector('.principalNav');
+
+        let sticky = navbar.offsetTop;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        });
+    </script>
 </header>
 </body>
 </html>

@@ -19,9 +19,6 @@ class EliquidProducts
     private $name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $brand;
-
-    #[ORM\Column(type: 'string', length: 255)]
     private $flavor;
 
     #[ORM\Column(type: 'integer')]
@@ -48,6 +45,9 @@ class EliquidProducts
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $img;
 
+    #[ORM\OneToOne(inversedBy: 'eliquids', targetEntity: Brand::class, cascade: ['persist', 'remove'])]
+    private $brand;
+
     public function __construct()
     {
         $this->baskets = new ArrayCollection();
@@ -66,18 +66,6 @@ class EliquidProducts
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getBrand(): ?string
-    {
-        return $this->brand;
-    }
-
-    public function setBrand(string $brand): self
-    {
-        $this->brand = $brand;
 
         return $this;
     }
@@ -201,6 +189,18 @@ class EliquidProducts
     public function setImg(?string $img): self
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    public function getBrand(): ?brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?brand $brand): self
+    {
+        $this->brand = $brand;
 
         return $this;
     }

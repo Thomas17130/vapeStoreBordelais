@@ -18,8 +18,8 @@ class Brand
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\OneToMany(mappedBy: 'brand', targetEntity: Product::class, orphanRemoval: true)]
-    private $products;
+    #[ORM\OneToOne(mappedBy: 'brand', targetEntity: EliquidProducts::class, cascade: ['persist', 'remove'])]
+    private $eliquids;
 
     public function __construct()
     {
@@ -55,24 +55,24 @@ class Brand
         return $this->products;
     }
 
-    public function addProduct(Product $product): self
+    public function getEliquids(): ?EliquidProducts
     {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->setBrand($this);
-        }
-
-        return $this;
+        return $this->eliquids;
     }
 
-    public function removeProduct(Product $product): self
+    public function setEliquids(?EliquidProducts $eliquids): self
     {
-        if ($this->products->removeElement($product)) {
-            // set the owning side to null (unless already changed)
-            if ($product->getBrand() === $this) {
-                $product->setBrand(null);
-            }
+        // unset the owning side of the relation if necessary
+        if ($eliquids === null && $this->eliquids !== null) {
+            $this->eliquids->setBrand(null);
         }
+
+        // set the owning side of the relation if necessary
+        if ($eliquids !== null && $eliquids->getBrand() !== $this) {
+            $eliquids->setBrand($this);
+        }
+
+        $this->eliquids = $eliquids;
 
         return $this;
     }
