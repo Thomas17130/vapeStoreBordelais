@@ -5,16 +5,43 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/updateProduct.css') }}">
+    <title>Modifier le produit</title>
 </head>
-<body>
+<body class="flexColumn">
     {{ include('commons/navigation.html.twig') }}
     <main>
-        <a href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
-        <div>
-            {{ form(eliquidForm) }}
-        </div>
+        <article>
+            <div class="card">
+                <a href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
+                <div>
+                    {{ form_start(eliquidForm.name, {
+                        label:'Nom','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(eliquidForm.brand, {
+                        label:'Marque','attr':
+                        {'class':'form'}}) }}
+                    {{form_row(eliquidForm.flavor, {
+                        label:'Saveur','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(eliquidForm.price, {
+                        label:'Prix','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(eliquidForm.size, {
+                        label:'Contenance','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(eliquidForm.stock, {label:
+                        'Stock','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(eliquidForm.img, {
+                        label: 'Image',
+                        'attr':{'class':'form'}
+                    }) }}
+                    {{ form_end(eliquidForm) }}
+
+                </div>
+            </div>
+        </article>
     </main>
 </body>
 </html>

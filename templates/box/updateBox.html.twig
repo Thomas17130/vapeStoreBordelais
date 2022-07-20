@@ -5,10 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/updateBox.css') }}">
-
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/updateProduct.css') }}">
+    <title>Modifier le produit</title>
 </head>
 <body class="flexColumn">
     {{ include('commons/navigation.html.twig') }}
@@ -17,11 +15,26 @@
             <div class="card">
                 <a href="{{ path('deleteBox', {'id': id}) }}">Supprimer le produit</a>
                 <div>
-                    {{ form(boxForm) }}
+                    {{ form_start(boxForm, {'attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(boxForm.brand, {
+                        label:'Marque','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(boxForm.price, {
+                        label:'Prix','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(boxForm.stock, {label:
+                        'Stock','attr':
+                        {'class':'form'}}) }}
+                    {{ form_row(eliquidForm.img, {
+                        label: 'Image',
+                        'attr':{'class':'form'}
+                    }) }}
+                    {{ form_end(eliquidForm) }}
+
                 </div>
             </div>
         </article>
     </main>
-
 </body>
 </html>

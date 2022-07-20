@@ -18,7 +18,7 @@ main{
     border-radius: 2em;
 }
 
-body a{
+a{
     text-decoration: none;
     color: #DDDDDD;
 }

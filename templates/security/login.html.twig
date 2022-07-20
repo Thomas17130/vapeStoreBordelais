@@ -6,8 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
-    <title>Document</title>
+    <title>Connexion</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
@@ -30,7 +29,7 @@
                     <div class="fieldsConnexion">
                         <label for="inputEmail">Email</label>
                         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-                        <label for="inputPassword">Password</label>
+                        <label for="inputPassword">Mot de passe</label>
                         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
                         <input class="connected" type="hidden" name="_csrf_token"
@@ -47,7 +46,7 @@
                     </div>
                     #}
 
-                    <button class="btn btn-lg btn-primary" type="submit">
+                    <button class="" type="submit">
                         Connecter
                     </button>
                     <p>

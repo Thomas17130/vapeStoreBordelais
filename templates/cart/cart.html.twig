@@ -6,11 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets\css\cart.css">
-    <title>Document</title>
+    <title>Panier</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
     <main>
+        <div class="popUp"></div>
         <h2>Panier</h2>
         <div>
             <form class="formCart" action="">
@@ -27,4 +28,5 @@
         </div>
     </main>
 </body>
+<script src="{{ asset('assets/js/script.js') }}"></script>
 </html>

@@ -13,7 +13,7 @@ class CartFormType extends AbstractType
     {
         $builder
 
-            ->add('Products')
+            ->add('Produits')
         ;
     }
 

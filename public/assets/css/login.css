@@ -63,3 +63,19 @@ button:hover {
 .register:hover{
     background-color: rgb(2,71,120);
 }
+@media screen and (max-width: 600px) {
+    .formConnexion{
+        width: 70%;
+        height: 400px;
+        background-color: var(--third-color);
+        border-radius: 20px;
+        line-height: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    button:hover {
+        background-color: rgb(2,71,120);
+
+    }
+}

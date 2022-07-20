@@ -6,16 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
     <title>Les boxs</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <main>
+    <main class="mainEliquid">
         <h1 class="textPage">
            Les Boxs
         </h1>
-        <a href="{{ path('createBox') }}">Ajouter un produit</a>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a class="roleAdminA" href="{{ path('createBox') }}">Ajouter un produit</a>
+        {% endif %}
         <section>
             {% for box in boxs %}
             <article class="box">
@@ -28,11 +29,18 @@
                         <p>
                             {{ box.price }} euros
                         </p>
-                        <p>
-                            {{ box.stock > 0 ? (box.stock < 10 ? 'Il n\'en reste que ' ~ box.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
-                        </p>
-                <a href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
-                </article>
+                    <div class="{{ box.stock > 0 ? (box.stock < 10 ? 'danger-color flex-centered' : 'success-color') : 'danger-color' }}">
+                    {% if box.stock >=0 and box.stock < 10 %}
+                        <p class="warn warning"></p>
+                    {% endif %}
+                        <div class="ml-2">
+                            {{ box.stock > 0 ? (box.stock < 10 ? 'Il n\'en reste plus que ' ~ box.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
+                        </div>
+                    </div>
+                        {% if is_granted('ROLE_ADMIN') %}
+                <a class="roleAdminM" href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
+                {% endif %}
+            </article>
             {% endfor %}
         </section>
     </main>

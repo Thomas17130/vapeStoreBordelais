@@ -26,13 +26,26 @@ main{
 }
 .informations{
     width: 30%;
-    height: 400px;
-    padding: 30px;
+    padding: 3%;
     background-color: var(--third-color);
     border-radius: 20px;
-    line-height: 3em;
     display: flex;
     flex-direction: column;
+    text-align: center;
     justify-content: center;
 
+}
+.mainEliquid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 3%;
+}
+.informationsP{
+    margin: 2%;
+    padding: 1%;
+}
+.prf{
+    margin: 5%;
 }

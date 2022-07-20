@@ -5,17 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/products.css') }}">
-    <title>Document</title>
+    <title>Le E-liquides</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <main>
+    <main class="mainEliquid">
         <h1 class="textPage">
             Les Eliquides
         </h1>
-        <a href="{{ path('createEliquid') }}">Ajouter un produit</a>
+        {% if is_granted('ROLE_ADMIN') %}
+        <a class="roleAdminA" href="{{ path('createEliquid') }}">Ajouter un produit</a>
+        {% endif %}
         <section>
             {% for product in eliquids %}
             <article class="box">
@@ -39,7 +40,9 @@
                                 {{ product.stock > 0 ? (product.stock < 10 ? 'Il n\'en reste plus que ' ~ product.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
                             </div>
                         </div>
-                        <a href="{{ path('updateEliquid', {'id': product.id}) }}" class="flex-column">Modifier un produit</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                <a class="roleAdminM" href="{{ path('updateEliquid', {'id': product.id}) }}" class="flex-column">Modifier un produit</a>
+                {% endif %}
             </article>
             {% endfor %}
         </section>

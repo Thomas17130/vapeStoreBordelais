@@ -5,26 +5,25 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/css/scrollBar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/myAccount.css') }}">
     <title>Mon compte</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
-    <main>
-        <h1>Mon profil</h1>
+    <main class="mainEliquid">
+        <h1 class="prf">Mon profil</h1>
         <div class="informations">
             <a href="{{ path('updateUser', {'id':app.user.id}) }}">Modifier</a>
-            <p>
+            <p class="informationsP">
                 Nom:{{ app.user.name }}
             </p>
-            <p>
+            <p class="informationsP">
                 Prénom:{{ app.user.lastname }}
             </p>
-            <p>
+            <p class="informationsP">
                 Email:{{ app.user.email }}
             </p>
-            <p>
+            <p class="informationsP">
                 Adresse postale:{{ app.user.address }}
             </p>
         </div>

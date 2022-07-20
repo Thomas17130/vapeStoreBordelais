@@ -17,6 +17,12 @@ body a{
     text-decoration: none;
     color: #DDDDDD;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .addForm{
     width: 400px;
     height:500px ;

@@ -31,9 +31,36 @@
             </div>
         {% else %}
             <div>
-                <a href="{{ path('app_login') }}" class="navigationItem">Connexion</a>
+                <a href="{{ path('app_login') }}" class="navigationItem">Connexion/Inscription</a>
             </div>
         {% endif %}
+        <div class="burger">
+            <span class="spanB"></span>
+            <span class="spanB"></span>
+            <span class="spanB"></span>
+        </div>
+        <div class="burgerDivDeroulant">
+            <div class="burgerA">
+                <a href="{{ path('listEliquid') }}" class="aBurger">Les E-liquids</a>
+            </div>
+            <div>
+                <a href="{{ path('listBox') }}" class="aBurger">Les boxs</a>
+            </div>
+            {% if app.user != null %}
+                <div>
+                    <a href="{{ path('myAccount') }}" class="navBurger">Mon profil</a>
+                </div>
+            {% endif %}
+            {% if app.user != null %}
+                <div>
+                    <a href="{{ path('app_logout') }}" class="navBurger">Logout</a>
+                </div>
+            {% else %}
+                <div>
+                    <a href="{{ path('app_login') }}" class="navBurger">Connexion/Inscription</a>
+                </div>
+            {% endif %}
+        </div>
         <a  href="{{ path('cartView') }}"><img class="panier" src="{{ asset('assets/img/ajouter-au-panier.png') }}" alt=""></a>
     </nav>
     <script type="text/javascript">
@@ -51,5 +78,6 @@
     </script>
 </header>
 </body>
+<script src="{{ asset('assets/js/script.js') }}"></script>
 </html>
 

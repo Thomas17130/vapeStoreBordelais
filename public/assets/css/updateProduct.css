@@ -12,18 +12,27 @@ body{
     display: flex;
     align-items: center;
 }
-article{
-    width: 100%;
+body a{
+    text-decoration: none;
+    color: white;
+}
+main{
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+article{
+    color: white;
 }
 .card{
-    margin: 0 15px;
-    border-radius: 10px;
-    background-color: var( --third-color-dark);
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    background-color: var(--third-color);
+    border-radius: 20px;
+    line-height: 2em;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
