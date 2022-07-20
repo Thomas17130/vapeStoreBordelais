@@ -6,30 +6,31 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/createBox.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/form.css') }}">
     <title>ajouter un produit</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
     <main>
         <h1>Ajouter une box</h1>
-        <div class="addForm">
+        <article class="articleCard">
             {{ form_start(boxForm, {'attr':
-                {'class':'form'}}) }}
+                {'class':'flex-centered'}}) }}
             {{ form_row(boxForm.brand, {
                 label:'Marque','attr':
-                {'class':'form'}}) }}
+                {'class':'stylisedInput'}}) }}
             {{ form_row(boxForm.price, {
                 label:'Prix','attr':
-                {'class':'form'}}) }}
+                {'class':'stylisedInput'}}) }}
             {{ form_row(boxForm.stock, {label:
                 'Stock','attr':
-                {'class':'form'}}) }}
+                {'class':'stylisedInput'}}) }}
             {{ form_row(boxForm.img, {
                 label: 'Image',
-                'attr':{'class':'form'}
+                'attr':{'class':'stylisedInput'}
             }) }}
             {{ form_end(boxForm) }}
-        </div>
+        </article>
     </main>
 </body>
 </html>

@@ -6,41 +6,44 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/css/Account.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/form.css') }}">
     <title>Modifier son profil</title>
 </head>
-<body class="flexColumn">
+<body>
     {{ include('commons/navigation.html.twig') }}
-    <main class="mainEliquid">
+    <main>
         <h1>Modifier mon profil</h1>
         <article class="articleCard">
             <div class="formRegister">
-                <span class="delete">
-                    <a href="{{ path('deleteUser', {'id':app.user.id}) }}">Supprimer mon profil</a>
-                </span>
                 <div class="form">
                     {{ form_start(userForm, {'attr':
-                        {'class':'form'}}) }}
-                    {{ form_row(userForm.lastname, {
+                        {'class':'flex-centered'}}) }}
+                    {{ form_row (userForm.lastname, {
                         label:'Prénom','attr':
-                        {'class':'form'}}) }}
+                        {'class':'stylisedInput'}}) }}
                     {{form_row(userForm.name, {
                         label:'Nom','attr':
-                        {'class':'form'}}) }}
+                        {'class':'stylisedInput'}}) }}
                     {{ form_row(userForm.dateOfBirth, {
                         label:'Date de naissance','attr':
-                        {'class':'form'}}) }}
+                        {'class':'stylisedInput'}}) }}
                     {{ form_row(userForm.address, {
                         label:'Adresse','attr':
-                        {'class':'form'}}) }}
+                        {'class':'stylisedInput'}}) }}
+                    {{ form_errors(userForm.email, { 'attr':
+                        {'class':'stylisedInput'}}) }}
                     {{ form_row(userForm.email, {label:
                         'Email','attr':
-                        {'class':'form'}}) }}
+                        {'class':'stylisedInput'}}) }}
                     {{ form_row(userForm.plainPassword, {
                         label: 'Mot de passe',
-                        'attr':{'class':'form'}
+                        'attr':{'class':'stylisedInput'}
                     }) }}
                     {{ form_end(userForm) }}
                 </div>
+                <span class="delete">
+                    <a href="{{ path('deleteUser', {'id':app.user.id}) }}">Supprimer mon profil</a>
+                </span>
             </div>
         </article>
 

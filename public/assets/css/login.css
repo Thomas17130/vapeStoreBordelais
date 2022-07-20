@@ -12,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(calc(50vh - 200px - 52px));
+    transform: translateY(calc(50vh - 208px - 52px));
 }
 .flex-center a{
     text-decoration: none;
@@ -20,7 +20,7 @@ body {
 }
 .formConnexion{
     width: 30%;
-    height: 400px;
+    /*height: 400px;*/
     background-color: var(--third-color);
     border-radius: 20px;
     line-height: 3em;

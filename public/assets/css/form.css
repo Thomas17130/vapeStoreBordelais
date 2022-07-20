@@ -1,0 +1,96 @@
+:root{
+    --principal-color : rgba(65,55,55,0.6);
+    --second-color : rgba(65,55,55,100%);
+    --third-color : rgba(41, 126, 186, 100%)
+}
+
+.stylisedInput:not([type=checkbox]) {
+    width: 95%;
+    padding: 12px;
+    align-self: center;
+}
+
+.flex-centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+button{
+    width: 40%;
+    height: 30px;
+    margin: 20px 100px;
+    border-radius: 5px;
+    border: 1px solid rgb(2,71,120);
+    cursor: pointer ;
+    color: #DDDDDD;
+    background-color: var(--third-color);
+}
+
+button:hover {
+    background-color: rgb(2,71,120);
+
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 104px);
+}
+
+main h1{
+    text-align: center;
+}
+
+.articleCard{
+    width: 40vw;
+    background-color: var(--third-color);
+    border-radius: 20px;
+    line-height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form div label {
+    margin-left: 2.5%;
+}
+
+form div input[type=checkbox] {
+    margin-left: 2.5%;
+    padding: 12px;
+    align-self: start;
+}
+
+form div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form div button {
+    align-self: center;
+}
+
+body{
+    background-color:var(--principal-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+    .articleCard{
+        width: 80%;
+        background-color: var(--third-color);
+        border-radius: 20px;
+        line-height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
