@@ -32,7 +32,7 @@ class CreateEliquidType extends AbstractType
                 'required' => false,
                 'mapped' => false
             ])
-            ->add('Ajouter', SubmitType::class)
+            ->add('submit', SubmitType::class)
         ;
     }
 

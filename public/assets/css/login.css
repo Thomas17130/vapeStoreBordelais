@@ -8,14 +8,13 @@ body {
     background-color:var(--principal-color);
 }
 main{
-    min-height: 72vh;
+    margin: 200px 0;
 }
-.flex-center{
+/*.flex-center{
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translateY(calc(50vh - 208px - 52px));
-}
+}*/
 .flex-center a{
     text-decoration: none;
     color: #DDDDDD;
@@ -31,8 +30,7 @@ main{
     align-items: center;
 }
 .formConnexion > form{
-    width: 8
-    0%;
+    width: 80%;
     color: #DDDDDD;
     display: flex;
     flex-direction: column;

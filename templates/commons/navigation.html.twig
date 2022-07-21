@@ -40,24 +40,24 @@
             <span class="spanB"></span>
         </div>
         <div class="burgerDivDeroulant">
-            <div class="burgerA">
+            <div class="burgerItem">
                 <a href="{{ path('listEliquid') }}" class="aBurger">Les E-liquids</a>
             </div>
-            <div>
+            <div class="burgerItem">
                 <a href="{{ path('listBox') }}" class="aBurger">Les boxs</a>
             </div>
             {% if app.user != null %}
-                <div>
-                    <a href="{{ path('myAccount') }}" class="navBurger">Mon profil</a>
+                <div class="burgerItem">
+                    <a href="{{ path('myAccount') }}" class="aBurger">Mon profil</a>
                 </div>
             {% endif %}
             {% if app.user != null %}
-                <div>
-                    <a href="{{ path('app_logout') }}" class="navBurger">Logout</a>
+                <div class="burgerItem">
+                    <a href="{{ path('app_logout') }}" class="aBurger">Logout</a>
                 </div>
             {% else %}
-                <div>
-                    <a href="{{ path('app_login') }}" class="navBurger">Connexion/Inscription</a>
+                <div class="burgerItem">
+                    <a href="{{ path('app_login') }}" class="aBurger">Connexion/Inscription</a>
                 </div>
             {% endif %}
         </div>

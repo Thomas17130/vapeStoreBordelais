@@ -5,10 +5,6 @@
     --third-color-dark : rgba(22,69,102);
 }
 
-html {
-    overflow-x: hidden;
-}
-
 /* QUE DANS NAV */
 *{
     margin: 0;
@@ -84,31 +80,20 @@ header img{
 .logoNavigation{
     border-radius: 50%;
 }
-
-.burgerItem{
-    color: black;
-    padding:12px 23px ;
-    background-color: var(--third-color);
-    border-radius: 9% 91% 11% 89% / 75% 15% 85% 25% ;
-}
-
 .navigationItem{
     color: black;
     padding:12px 23px ;
     background-color: var(--third-color);
     border-radius: 9% 91% 11% 89% / 75% 15% 85% 25% ;
 }
-
 .navigationItem:hover{
     color: white;
     transition: 0.5s;
     background-color: var(--third-color-dark);
 }
-
 .thirdColor{
     color: var(--third-color);
 }
-
 .thirdColor:hover{
     color: white;
     transition: 0.5s;
@@ -157,14 +142,12 @@ header img{
     position: absolute;
     width: 67px;
     height: 40px;
-    /*display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;*/
+    align-items: center;
     display: none;
     top: 31%;
-    position: absolute;
-    right: 0;
 }
 .spanB {
     width: 40px;
@@ -173,25 +156,17 @@ header img{
     background-color: white;
 }
 
-.translate0 {
-    transform: translateX(0%) !important;
-    transition: 0.5s all !important;
-}
-
 .burgerDivDeroulant {
-    /*display: flex;*/
-    height: calc(100vh - 104px);
-    width: 100vw;
-    /*flex-direction: column;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;*/
+    justify-content: space-between;
     padding: 6%;
     background-color: var(--third-color-dark);
+    display: none;
     position: absolute;
     top: 75%;
     border-radius: 1em;
-    transform: translateX(100%);
-    transition: 0.5s all;
 }
 .displayBlock{
     display: block!important;
@@ -199,12 +174,16 @@ header img{
 .displayNone{
     display: none!important;
 }
+.navBurger{
+    margin: 2%;
+    font-size: 9px;
+    color: white;
 
+}
 .aBurger{
     margin: 2%;
-    font-size: 18px !important;
+    font-size: 9px;
     color: white;
-    /*line-height: 36px;*/
 }
 
 /*------------------RESPONSIVE------------------*/
@@ -220,8 +199,5 @@ header img{
     }
     .spanB{
         display: block!important;
-    }
-    .panier{
-        display: none!important;
     }
 }

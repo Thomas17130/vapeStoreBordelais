@@ -28,9 +28,24 @@ button{
     background-color: var(--third-color);
 }
 
+form div a {
+    width: 40%;
+    height: 30px;
+    margin: 20px 100px;
+    border-radius: 5px;
+    border: 1px solid rgb(2,71,120);
+    cursor: pointer ;
+    color: #DDDDDD;
+    background-color: var(--third-color);
+    text-align: center;
+}
+
+form div a:hover {
+    background-color: rgb(2,71,120);
+}
+
 button:hover {
     background-color: rgb(2,71,120);
-
 }
 
 main {
@@ -72,6 +87,10 @@ form div {
 }
 
 form div button {
+    align-self: center;
+}
+
+.selfAlign {
     align-self: center;
 }
 

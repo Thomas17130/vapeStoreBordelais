@@ -7,9 +7,23 @@
 main{
     width: 100%;
     min-height: 72vh;
-    background-color: var(--second-color);
+    background-color: var(--principal-color) !important;
 }
 .contact{
+    height: 35vh;
+    color: white;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+
+}
+@media screen and (max-width: 900px) {
+    .contact{
+        width: auto;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
 }

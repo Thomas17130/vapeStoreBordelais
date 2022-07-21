@@ -92,11 +92,8 @@
     "nikic/php-parser": {
         "version": "v4.13.2"
     },
-    "paypal/paypal-checkout-sdk": {
-        "version": "1.0.2"
-    },
-    "paypal/paypalhttp": {
-        "version": "1.0.1"
+    "paypal/rest-api-sdk-php": {
+        "version": "v1.6.4"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
@@ -254,6 +251,15 @@
             "./src/Controller/.gitignore",
             "./src/Kernel.php"
         ]
+    },
+    "symfony/google-mailer": {
+        "version": "5.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "4.4",
+            "ref": "f8fd4ddb9b477510f8f4bce2b9c054ab428c0120"
+        }
     },
     "symfony/http-client": {
         "version": "v5.4.7"

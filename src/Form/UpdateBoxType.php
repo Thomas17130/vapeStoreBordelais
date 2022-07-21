@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\BoxProducts;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,7 @@ class UpdateBoxType extends AbstractType
             ->add('stock')
             ->add('img')
             ->add('price')
-            ->add('Enregistrer',SubmitType::class)
+            ->add('enregistrer',SubmitType::class)
         ;
     }
 

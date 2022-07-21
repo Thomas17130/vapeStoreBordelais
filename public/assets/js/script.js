@@ -3,7 +3,7 @@ let burger = document.querySelector('.burger');
 let burgerDivDeroulant = document.querySelector('.burgerDivDeroulant');
 let burgerA = document.querySelector('.burgerA');
 burger.addEventListener('click', function(){
-    burgerDivDeroulant.classList.toggle('displayBlock')
+    burgerDivDeroulant.classList.toggle('translate0')
 });
 
 let popUp = document.querySelector('.panier');

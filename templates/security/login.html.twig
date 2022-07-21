@@ -5,35 +5,46 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/form.css') }}">
     <title>Connexion</title>
 </head>
 <body>
     {{ include('commons/navigation.html.twig') }}
     <main>
-        <section class="flex-center">
+        <section>
             {% if app.user %}
                 <div class="mb-3">
                     Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnecter</a>
                 </div>
             {% endif %}
-            <div class="formConnexion">
-
-                {% block body %}
-                <form method="post">
+            <h1>Connexion</h1>
+            <article class="articleCard">
+                <form method="post" class="flex-centered">
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
-
-                    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-                    <div class="fieldsConnexion">
+                    <div>
                         <label for="inputEmail">Email</label>
-                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="stylisedInput" autocomplete="email" required autofocus>
+                    </div>
+                    <div>
                         <label for="inputPassword">Mot de passe</label>
-                        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
+                        <input type="password" name="password" id="inputPassword" class="stylisedInput" autocomplete="current-password" required>
                         <input class="connected" type="hidden" name="_csrf_token"
                                value="{{ csrf_token('authenticate') }}">
+                    </div>
+                    <div>
+                        <button class="" type="submit">
+                            Connecter
+                        </button>
+                    </div>
+                    <div>
+                        <p class="selfAlign">
+                            Vous n'êtes pas encore inscrit?
+                        </p>
+                        <a class="selfAlign" href="{{ path('register') }}">
+                            S'enregistrer
+                        </a>
                     </div>
                     {#
                     Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -45,19 +56,8 @@
                         </label>
                     </div>
                     #}
-
-                    <button class="" type="submit">
-                        Connecter
-                    </button>
-                    <p>
-                        Vous n'êtes pas encore inscrit?
-                    </p>
-                    <a class="register" href="{{ path('register') }}">
-                        S'enregistrer
-                    </a>
                 </form>
-            </div>
-            {% endblock %}
+            </article>
         </section>
     </main>
     {{ include('commons/footer.html.twig') }}

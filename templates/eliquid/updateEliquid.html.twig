@@ -38,8 +38,13 @@
                 label: 'Image',
                 'attr':{'class':'stylisedInput'}
             }) }}
+            {{ form_row(eliquidForm.submit, {
+                label: 'Modifier le produit'
+            }) }}
+            <div>
+                <a class="selfAlign" href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
+            </div>
             {{ form_end(eliquidForm) }}
-            <a href="{{ path('deleteEliquid', {'id': id})}}">Supprimer le produit</a>
         </article>
     </main>
     {{ include('commons/footer.html.twig') }}
