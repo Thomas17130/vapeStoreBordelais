@@ -31,7 +31,8 @@ main{
     align-items: center;
 }
 .formConnexion > form{
-    width: 80%;
+    width: 8
+    0%;
     color: #DDDDDD;
     display: flex;
     flex-direction: column;
