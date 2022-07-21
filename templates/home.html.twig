@@ -16,9 +16,12 @@
             <img src="../{{ asset('assets/img/homePhoto.jpg') }}" alt="photo de page d'accueil de cigarette elctronique">
         </div>
         <section class="firstSection">
-            <article>
-                <img src="../{{ asset('assets/img/Magasin.jpg') }}" alt="magasin design de cigarette electronique">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet culpa dolorum et eveniet illo inventore laudantium modi, molestiae sequi! Accusantium alias, aliquam aliquid amet commodi consequatur cupiditate debitis dicta doloribus expedita explicabo illum, ipsa, itaque nam natus nihil possimus praesentium provident sint soluta vel velit vero voluptatem. Delectus impedit in natus numquam officiis vero. Cupiditate, deleniti error eum minima molestiae sit suscipit veniam? A ab accusamus ad amet corporis eaque eligendi enim eum facilis harum inventore labore, libero magnam molestias, nesciunt non numquam quae qui, quia quibusdam quidem quisquam quos ratione reiciendis repellendus reprehenderit sapiente sequi similique suscipit veniam voluptates.
+            <article id="mapContact">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11309.25598592946!2d-0.5734397!3d44.87625859999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd55284ff37e190f%3A0x6a743820112efb38!2sCampus%20du%20Lac!5e0!3m2!1sfr!2sfr!4v1658395164929!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p>Ce site est à titre informatif. Pour toutes demandes, n'hesitez pas à venir nous vous ou nous contacter à l'adresse suivante :  <br>
+                    vapestorebordelais@gmail.com <br>
+                    ou de nous appeler au: <br>
+                    0506070809
                 </p>
             </article>
         </section>
@@ -37,6 +40,7 @@
             </article>
         </section>
     </main>
+    {{ include('commons/footer.html.twig') }}
 </body>
 {% endblock %}
 </html>

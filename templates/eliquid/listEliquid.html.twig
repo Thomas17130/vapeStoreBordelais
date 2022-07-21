@@ -24,21 +24,21 @@
                             <img src="{{ asset('uploadDirectory/' ~ product.img) }}" alt="Seo à completer" class="sizedImg">
                         </a>
                         <p>
-                            {{ product.brand }}
+                            Marque: {{ product.brand }}
                         </p>
                         <p>
-                            {{ product.name }}
+                            Nom du produit: {{ product.name }}
                         </p>
                         <p>
-                            {{ product.price }} euros
+                            Tarif: {{ product.price }} euros
                         </p>
-                        <div class="{{ product.stock > 0 ? (product.stock < 10 ? 'danger-color flex-centered' : 'success-color') : 'danger-color' }}">
+                <!--<div class="{{ product.stock > 0 ? (product.stock < 10 ? 'danger-color flex-centered' : 'success-color') : 'danger-color' }}">
                             {% if product.stock >=0 and product.stock < 10 %}
                                 <p class="warn warning"></p>
                             {% endif %}
                             <div class="ml-2">
                                 {{ product.stock > 0 ? (product.stock < 10 ? 'Il n\'en reste plus que ' ~ product.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
-                            </div>
+                            </div>-->
                         </div>
                 {% if is_granted('ROLE_ADMIN') %}
                 <a class="roleAdminM" href="{{ path('updateEliquid', {'id': product.id}) }}" class="flex-column">Modifier un produit</a>
@@ -47,5 +47,6 @@
             {% endfor %}
         </section>
     </main>
+    {{ include('commons/footer.html.twig') }}
 </body>
 </html>

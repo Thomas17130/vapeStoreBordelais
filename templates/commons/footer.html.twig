@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/css/navigation.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<footer>
+    <nav class="principalNav">
+        <div>
+            <a href="{{ path('home') }}" class="aLogoNavigation"><img class="logoNavigation" src="{{ asset('assets/img/logoVapestorBordelais.jpg') }}" alt="Logo vapestore bordelais ecommerce ..."></a>
+        </div>
+        <div>
+            <a href="{{ path('listEliquid') }}" class="thirdColor">Les E-liquids</a>
+        </div>
+        <div>
+            <a href="{{ path('listBox') }}" class="thirdColor">Les boxs</a>
+        </div>
+        <div class="about">
+            <h2>A propos de nous</h2>
+           <li><a href="{{ path('contact') }}">Contact</a></li>
+            <li><a href="{{ path('home') }}#mapContact">Plan d'accès à la boutique</a></li>
+        </div>
+        {% if app.user != null %}
+            <div>
+                <a href="{{ path('myAccount') }}" class="navigationItem">Mon profil</a>
+            </div>
+        {% endif %}
+        {% if app.user != null %}
+            <div>
+                <a href="{{ path('app_logout') }}" class="navigationItem">Logout</a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{{ path('app_login') }}" class="navigationItem">Connexion/Inscription</a>
+            </div>
+        {% endif %}
+
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

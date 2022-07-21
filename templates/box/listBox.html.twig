@@ -24,19 +24,19 @@
                             <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="image de la box : {{ box.brand }}">
                         </a>
                         <p>
-                            {{ box.brand }}
+                           Marque: {{ box.brand }}
                         </p>
                         <p>
-                            {{ box.price }} euros
+                            Tarif: {{ box.price }} euros
                         </p>
-                    <div class="{{ box.stock > 0 ? (box.stock < 10 ? 'danger-color flex-centered' : 'success-color') : 'danger-color' }}">
+                    <!--<div class="{{ box.stock > 0 ? (box.stock < 10 ? 'danger-color flex-centered' : 'success-color') : 'danger-color' }}">
                     {% if box.stock >=0 and box.stock < 10 %}
                         <p class="warn warning"></p>
                     {% endif %}
                         <div class="ml-2">
                             {{ box.stock > 0 ? (box.stock < 10 ? 'Il n\'en reste plus que ' ~ box.stock ~ ' en stock' : 'en stock') : 'hors stock' }}
                         </div>
-                    </div>
+                    </div>-->
                         {% if is_granted('ROLE_ADMIN') %}
                 <a class="roleAdminM" href="{{ path('updateBox', {'id': box.id}) }}">Modifier le produit</a>
                 {% endif %}
@@ -44,6 +44,6 @@
             {% endfor %}
         </section>
     </main>
-
+    {{ include('commons/footer.html.twig') }}
 </body>
 </html>

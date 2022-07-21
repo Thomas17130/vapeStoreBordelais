@@ -15,18 +15,19 @@
         <div class="product">
             <img src="{{ asset('uploadDirectory/' ~ eliquid.img) }}" alt="Seo à completer">
             <p>
-                {{ eliquid.name }}
+                Nom du produit: {{ eliquid.name }}
             </p>
             <p>
-                {{ eliquid.brand }}
+                Marque: {{ eliquid.brand }}
             </p>
             <p>
-                {{ eliquid.flavor }}
+                Saveur: {{ eliquid.flavor }}
             </p>
             <p>
-                {{ eliquid.price }} euros
+                Tarif: {{ eliquid.price }} euros
             </p>
         </div>
     </main>
+    {{ include('commons/footer.html.twig') }}
 </body>
 </html>

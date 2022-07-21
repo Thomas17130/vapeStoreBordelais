@@ -36,6 +36,7 @@ button:hover {
 main {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: calc(100vh - 104px);
 }
@@ -74,13 +75,9 @@ form div button {
     align-self: center;
 }
 
-body{
-    background-color:var(--principal-color);
+body {
+    background-color: var(--principal-color);
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 @media screen and (max-width: 600px) {

@@ -41,8 +41,6 @@ header a{
 }
 .logoNavigation{
     width: 90px;
-    /*position: absolute;*/
-    /*transform: translate(calc(-90px / 2), calc(-90px / 2));*/
     transition: 0.25s all;
 }
 
@@ -125,6 +123,20 @@ header img{
 .flexColumn{
     display: flex;
     flex-direction: column;
+}
+.about{
+    list-style-type: none;
+    text-decoration: none;
+}
+.about h2{
+    color: white;
+}
+.about a{
+    color: var(--third-color);
+}
+.about a:hover{
+    color: white;
+    transition: 0.5s;
 }
 .burger {
     position: absolute;

@@ -14,12 +14,13 @@
         <div class="product">
             <img src="{{ asset('uploadDirectory/' ~ box.img) }}" alt="Seo à completer">
             <p>
-                {{ box.brand }}
+                Marque: {{ box.brand }}
             </p>
             <p>
-                {{ box.price }} euros
+                Tarif: {{ box.price }} euros
             </p>
         </div>
     </main>
+    {{ include('commons/footer.html.twig') }}
 </body>
 </html>
