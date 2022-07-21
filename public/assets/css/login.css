@@ -7,7 +7,9 @@
 body {
     background-color:var(--principal-color);
 }
-
+main{
+    min-height: 72vh;
+}
 .flex-center{
     display: flex;
     justify-content: center;
@@ -35,6 +37,7 @@ body {
     flex-direction: column;
 }
 button{
+    width: 35%;
     height: 30px;
     margin: 20px 90px;
     border-radius: 5px;
@@ -52,6 +55,7 @@ button:hover {
     flex-direction: column;
 }
 .register{
+    width:35%;
     text-align: center;
     margin: 20px 90px;
     border-radius: 5px;
@@ -59,11 +63,13 @@ button:hover {
     cursor: pointer ;
     color: #DDDDDD;
     background-color: var(--third-color);
+    display: flex;
+    justify-content: center;
 }
 .register:hover{
     background-color: rgb(2,71,120);
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     .formConnexion{
         width: 70%;
         height: 400px;
