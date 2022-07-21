@@ -21,7 +21,6 @@ main{
 }
 .formConnexion{
     width: 30%;
-    /*height: 400px;*/
     background-color: var(--third-color);
     border-radius: 20px;
     line-height: 3em;
