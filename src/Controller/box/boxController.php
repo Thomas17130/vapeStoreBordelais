@@ -18,7 +18,7 @@ class boxController extends AbstractController
      * @throws OptimisticLockException
      * @throws ORMException
      */
-    #[Route('/createBox', name: 'createBox', methods:['GET','POST'])]
+    #[Route('^/admin/createBox', name: 'createBox', methods:['GET','POST'])]
     public function createBox(Request $request,BoxProductsRepository $boxProductsRepository): Response
     {
         $box = new BoxProducts();
@@ -56,7 +56,7 @@ class boxController extends AbstractController
             'box' => $box
         ]);
     }
-    #[Route('/updateBox/{id}', name:'updateBox', methods:['GET','POST'])]
+    #[Route('^/admin/updateBox/{id}', name:'updateBox', methods:['GET','POST'])]
     public function updateBox(Request $request, BoxProductsRepository $boxProductsRepository, $id)
     {
         $box = $boxProductsRepository->findOneBy(['id'=>$id]);
@@ -79,7 +79,7 @@ class boxController extends AbstractController
             'id' =>$box->getId()
         ]);
     }
-    #[Route('/deleteBox/{id}', name:'deleteBox', methods:['GET','POST'])]
+    #[Route('^/admin/deleteBox/{id}', name:'deleteBox', methods:['GET','POST'])]
     public function deleteBox(BoxProductsRepository $boxProductsRepository, $id)
     {
         $box = $boxProductsRepository->findOneBy((['id' => $id]));

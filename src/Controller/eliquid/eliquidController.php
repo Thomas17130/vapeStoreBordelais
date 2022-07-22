@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class eliquidController extends AbstractController
 {
-    #[Route('/createEliquid', name: 'createEliquid', methods: ['GET', 'POST'])]
+    #[Route('^/admin/createEliquid', name: 'createEliquid', methods: ['GET', 'POST'])]
     public function createEliquid(Request $request, EliquidProductsRepository $ProductRepository): Response
     {
         $eliquid = new EliquidProducts();
@@ -62,7 +62,7 @@ class eliquidController extends AbstractController
         ]);
     }
 
-    #[Route('/updateEliquid/{id}', name:'updateEliquid', methods:['GET','POST'])]
+    #[Route('^/admin/updateEliquid/{id}', name:'updateEliquid', methods:['GET','POST'])]
     public function updateEliquid(Request $request, EliquidProductsRepository $productRepository, $id)
     {
         $eliquid = $productRepository->FindOneBy(['id' =>$id]);
@@ -89,7 +89,7 @@ class eliquidController extends AbstractController
             'id' => $eliquid->getId()
         ]);
     }
-    #[Route('/deleteEliquid/{id}', name:'deleteEliquid', methods:['GET','POST'])]
+    #[Route('^/admin/deleteEliquid/{id}', name:'deleteEliquid', methods:['GET','POST'])]
     public function deleteEliquid(EliquidProductsRepository $productRepository, $id)
     {
         $eliquid = $productRepository->findOneBy(['id' => $id]);

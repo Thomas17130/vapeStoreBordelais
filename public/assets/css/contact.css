@@ -6,7 +6,7 @@
 
 main{
     width: 100%;
-    min-height: 72vh;
+    min-height: 100vh;
     background-color: var(--principal-color) !important;
 }
 .contact{
