@@ -15,7 +15,7 @@ class BoxProducts
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\OneToOne(inversedBy: 'boxProducts', targetEntity: Brand::class, cascade: ['persist', 'remove'])]
     private $brand;
 
     #[ORM\Column(type: 'datetime')]
@@ -49,12 +49,12 @@ class BoxProducts
         return $this->id;
     }
 
-    public function getBrand(): ?string
+    public function getBrand(): ?brand
     {
         return $this->brand;
     }
 
-    public function setBrand(string $brand): self
+    public function setBrand(brand $brand): self
     {
         $this->brand = $brand;
 

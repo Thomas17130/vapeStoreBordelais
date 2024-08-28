@@ -45,7 +45,7 @@ class EliquidProducts
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $img;
 
-    #[ORM\OneToOne(inversedBy: 'eliquids', targetEntity: Brand::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'eliquidProducts', targetEntity: Brand::class, cascade: ['persist', 'remove'])]
     private $brand;
 
     public function __construct()

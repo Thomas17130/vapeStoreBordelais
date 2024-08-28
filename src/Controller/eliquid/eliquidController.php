@@ -26,7 +26,7 @@ class eliquidController extends AbstractController
             $img = $eliquidForm->get('img')->getData();
             //creer un id unique sou format data pour l'image
             $imgName = md5(uniqid()). '.' . $img->guessExtension();
-            //mettre l'inage récupéré dans le dossier public/uploadDirectory grace aux parametres rentrés dans le service.yaml
+            //mettre l'image récupéré dans le dossier public/uploadDirectory grace aux parametres rentrés dans le service.yaml
             $img->move($this->getParameter('uploadDirectory'), $imgName);
             //ajouter l'id unique de $imgName dans le $eliquid
             $eliquid->setImg($imgName);

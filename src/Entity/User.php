@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $dateOfBirth;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $address;
+    private $adress;
 
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: EliquidProducts::class)]
     private $eliquidProducts;
@@ -46,9 +46,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: BoxProducts::class)]
     private $boxProducts;
 
-    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Cart::class, cascade: ['persist', 'remove'])]
-    private $cart;
-
+    //#[ORM\OneToOne(mappedBy: 'user', targetEntity: Cart::class, cascade: ['persist', 'remove'])]
+    //private $cart;
+//
     public function __construct()
     {
         $this->eliquidProducts = new ArrayCollection();
@@ -96,9 +96,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
-        /*$roles[] = 'ROLE_ADMIN';
-        $roles[] = 'ROLE_USER';*/
+        //guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
     }
@@ -181,14 +180,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getAddress(): ?string
+    public function getAdress(): ?string
     {
-        return $this->address;
+        return $this->adress;
     }
 
-    public function setAddress(string $address): self
+    public function setAdress(string $adress): self
     {
-        $this->address = $address;
+        $this->adress = $adress;
 
         return $this;
     }

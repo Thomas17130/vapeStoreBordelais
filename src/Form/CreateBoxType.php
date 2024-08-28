@@ -18,7 +18,10 @@ class CreateBoxType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('brand',TextType::class)
+            ->add('brand',EntityType::class, [
+                'choice_label' => 'name',
+                'class' => Brand::class
+            ])
             ->add('price', NumberType::class)
             ->add('stock', NumberType::class)
             ->add('img', FileType::class, [

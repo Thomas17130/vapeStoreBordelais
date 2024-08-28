@@ -14,5 +14,11 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
-    }
+    },
+    "name": "vapestorebordelais",
+    "version": "1.0.0",
+    "main": "webpack.config.js",
+    "keywords": [],
+    "author": "",
+    "description": ""
 }

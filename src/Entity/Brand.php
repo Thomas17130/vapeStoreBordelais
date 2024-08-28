@@ -18,8 +18,17 @@ class Brand
     #[ORM\Column(type: 'string', length: 255)]
     private $name;
 
-    #[ORM\OneToOne(mappedBy: 'brand', targetEntity: EliquidProducts::class, cascade: ['persist', 'remove'])]
-    private $eliquids;
+    #[ORM\OneToMany(mappedBy: 'brand', targetEntity: EliquidProducts::class)]
+    private $eliquidProducts;
+
+    #[ORM\OneToMany(mappedBy: 'brand', targetEntity: BoxProducts::class)]
+    private $boxProducts;
+
+    //#[ORM\ManyToOne(mappedBy: 'brand', targetEntity: EliquidProducts::class, cascade: ['persist', 'remove'])]
+    //private $eliquids;
+
+    //#[ORM\ManyToOne(mappedBy: 'brand', targetEntity: BoxProducts::class, cascade: ['persist', 'remove'])]
+    //private $boxProducts;
 
     public function __construct()
     {
